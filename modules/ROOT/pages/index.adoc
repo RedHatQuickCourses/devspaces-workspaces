@@ -1,0 +1,48 @@
+= Securing Access to Red Hat OpenShift DevSpaces
+:navtitle: Home
+
+== Introduction
+
+Welcome to this quick course on the _Securing Access to Red Hat OpenShift DevSpaces_.
+This course is the `third` in a series of `five` courses about Red Hat OpenShift DevSpaces:
+
+. https://redhatquickcourses.github.io/devspaces-intro[Introduction to Red Hat OpenShift Dev Spaces^]
+. https://redhatquickcourses.github.io/devspaces-admin[Red Hat OpenShift Dev Spaces Administration^] 
+. https://redhatquickcourses.github.io/devspaces-security[Securing Access to Red Hat OpenShift Dev Spaces^]
+. Creating and Customizing Workspaces in Red Hat OpenShift Dev Spaces (_This course_)
+. Configuring Plugins in Red Hat OpenShift Dev Spaces (_Under Development_)
+
+This course covers how to secure access to Red Hat OpenShift Dev Spaces and Workspaces.
+
+NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift Dev Spaces 3.16*. The labs should mostly work in minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
+
+== Course Objectives
+
+The overall objectives of this course include:
+
+* Overview of authentication and authorization in Dev Spaces
+* Configure access to Workspaces using GitHub OAuth 2.0
+* Allow users and groups access to specific workspaces
+
+== Course Prerequisites
+
+* You must complete the first two courses in the learning path covering the basics of Dev Spaces and its administration
+* Basic knowledge of OpenShift (or Kubernetes) administration
+* Knowledge of building Docker or Podman containers
+* Deploying container images on OpenShift or Kubernetes
+* OpenShift or Kubernetes User and Role administration
+
+== Contributors
+
+The PTL team acknowledges the valuable contributions of the following Red Hat associates:
+
+* Ravi Srinivasan
+* Rutuja Deshmukh
+* Anna Swicegood
+* Caitlyn Rymarchyk
+* Anton Giertli
+* Anatolii Bazko
+
+== Classroom Environment
+
+You must continue to use the classroom you provisioned for Dev Spaces in the second course (__Red Hat OpenShift Dev Spaces Administration__) of the learning path. You must have a valid installation of Dev Spaces using any of the approaches taught in the second course.

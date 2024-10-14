@@ -1,0 +1,16 @@
+site:
+  title: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces
+  start_page: devspaces-workspaces::index.adoc
+
+content:
+  sources:
+  - url: ./
+
+asciidoc:
+  attributes:
+    page-pagination: true
+
+ui:
+  bundle:
+    url: ./ui-bundle/ui-bundle.zip
+  supplemental_files: ./supplemental-ui

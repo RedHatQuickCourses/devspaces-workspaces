@@ -1,0 +1,5 @@
+name: devspaces-workspaces
+title: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces
+version: 3
+nav:
+- modules/ROOT/nav.adoc
