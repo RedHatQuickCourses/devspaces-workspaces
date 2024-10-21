@@ -1,0 +1,19 @@
+= Workspaces
+
+A `Workspace` is a virtual development environment that provides a fully configured and isolated space for developers to work on with source code. They encapsulate all the necessary programming language runtimes, tools, libraries, frameworks, and configurations required for a specific project, ensuring a consistent and reproducible development experience.
+
+By providing a fully pre-configured and isolated environment, which are built and tested in a consistent manner, workspaces can help developers get up and running quickly and focus on writing and testing code.
+
+Key features:
+
+* *Isolation*: Workspaces are isolated from each other, preventing conflicts and ensuring that changes made in one workspace don't affect others. Every developer gets their own Workspace.
+* *Customization*: Developers can customize their workspaces to their specific needs, including adding programming language runtimes, compilers, tools, libraries, and configuration.
+* *Version Control*: Workspaces can be integrated with version control systems like Git, allowing developers to track changes and collaborate effectively.
+* *Web and cloud based*: Workspaces can be accessed from anywhere with a browser and an internet connection.
+
+In this chapter you will learn how to create, manage and customize developer `Workspaces` in Red Hat OpenShift Dev Spaces.
+
+== Objectives
+
+* foo
+* bar

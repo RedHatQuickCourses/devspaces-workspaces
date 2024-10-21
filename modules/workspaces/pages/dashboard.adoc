@@ -1,0 +1,70 @@
+= Dev Spaces Dashboard
+
+The Dev Spaces dashboard is the central web-based user interface for managing and interacting workspaces. The dashboard allows developers to manage their workspaces from a single, user-friendly interface. It's designed to simplify the process of setting up, managing, and collaborating on development projects in a cloud-based environment.
+
+
+The following are some of the tasks that can be performed from the dashboard:
+
+* Create new workspaces
+* View, List and manage existing workspaces
+* Start, stop, and delete workspaces
+* Import projects from Git repositories
+* Administrators can often customize the dashboard's appearance and provide templates for easy launching of new workspaces
+* Configure container registry credentials
+* Configure Git credentials
+* Set up SSH keys
+
+== Manage Workspaces
+
+After a valid user log in, the web based dashboard provides an intuitive and easy to use web user interface to launch, stop, start and delete multiple workspaces.
+
+image::manage-ws.png[title=Manage Workspaces]
+
+== User Preferences
+
+The user preferences page allows a valid logged in user to configure a number of settings that are applied to all workspaces managed by the user. You can view the user preferences page by clicking on the user (for example, `user1`), and then clicking `User Preferences`
+
+image::user-prefs-launch.png[title=Launch User Preferences]
+
+The `User Preferences` page has a number of tabs for configuring user specific settings.
+
+=== Container Registries
+
+Use the Container Registries page to configure authentication to a private or public container registry (for example, DockerHub or Quay.io). Click `Add Container Registry` and then provide a suitable name, the username and password details for the container registry, and then click `Add`
+
+image::container-registry-creds.png[title=Add Container Registry Details]
+
+=== Git Services
+
+Since developers will mostly work with Git repositories in Workspaces, administrators can set up GitHub OAuth configuration to allow developers to log in developers using their GitHub credentials. If you have completed the hands-on lab in the second course _Red Hat OpenShift Dev Spaces Administration_, where GitHub OAuth configuration is covered, you should see an entry called `GitHub` in this tab.
+
+If you want to revoke the access,select this entry and click `Revoke`. You will be asked to re-login to GitHub on the next attempt at opening a workspace whose source code is stored in GitHub.
+
+image::gh-oauth-setup.png[title=GitHub OAuth Set up]
+
+=== Personal Access Tokens (PAT)
+
+Several Git repository providers like GitHub, GitLab, BitBucket and Azure DevOps allow developers to create temporary access tokens to allow pushing code changes back to the repository. The `Personal Access Tokens` tab allows you create PATs and store them in Dev Spaces. The token is then injected into workspaces and the credentials used during Git operations.
+
+image::pat-tokens.png[title=Create a PAT for Git Repos]
+
+NOTE: Since you configured GitHub OAuth in a previous course in the lab environment, you must see an entry for GitHub by default in this tab.
+
+=== Gitconfig
+
+You can inject a default per-user `.gitconfig` file into every workspace by configuring the details in this tab. You can upload your custom `.gitconfig` file or manually enter the contents. Note that if you have set up GitHub OAuth configuration, then the default GitHub name and email are automatically fetched and populated.
+
+image::gitconfig.png[title=.gitconfig file configuration]
+
+=== SSH Keys
+
+In this tab, you can store any SSH key-pairs that you will need to access servers, VMs and other services from within the workspace.
+
+image::ssh-keys.png[title=Add SSH key-pairs]
+
+
+
+
+
+
+

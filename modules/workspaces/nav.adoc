@@ -1,0 +1,8 @@
+* xref:index.adoc[]
+** xref:create.adoc[]
+** xref:udi.adoc[]
+** xref:dashboard.adoc[]
+** xref:kubedock.adoc[]
+** xref:ides.adoc[]
+
+

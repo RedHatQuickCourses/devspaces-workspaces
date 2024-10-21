@@ -1,0 +1,34 @@
+= Universal Developer Image (UDI)
+:navtitle: Universal Developer Image
+
+__Red Hat's Universal Developer Image (UDI)__ is a base container image designed to provide a comprehensive and consistent development environment for developers using OpenShift Dev Spaces. The UDI aims to offer a standardized, pre-configured environment for developers across various projects and languages. It is designed to reduce setup time and ensure consistency across different development environments.
+
+By default, newly created workspaces that do not specify a devfile will use the Universal Developer Image (UDI). The UDI contains common development tools and dependencies, plus a large number of programming language compilers and runtimes commonly used by modern cloud-native application developers.
+
+In addition, tools like `Podman` and `Buildah` are included in the UDI, allowing developers to build and push container images from their workspace.
+
+Red Hat maintains and updates the UDI to include the latest stable versions of tools. The `Dockerfile` used to build the UDI is available at https://github.com/devfile/developer-images.
+
+The latest updated UDI container images are available from the Quay.io container registry at https://quay.io/repository/devfile/universal-developer-image?tab=tags&tag=latest.
+
+The UDI includes support for popular languages like Java, Node.js, Python, and many more. A full list of available runtimes is at https://github.com/devfile/developer-images#included-development-tools-1.
+
+The UDI also includes a lot of useful developer tools like `git`, `curl`, `jq` and others. The full list of included tools is at https://github.com/devfile/developer-images#included-development-tools
+
+== Lab: Using the UDI for a Python Web Application
+
+. Fork the Git repository at https://github.com/rsriniva/simple-flask-app to your own GitHub account. This repository contains the source code for a simple Python web application based on the `Flask` framework. It does not contain a `Devfile`.
+
+. Log in to Dev Spaces as `user1` (or any valid user).
+
+. Create and open a new workspace in Dev Spaces by providing `https://github.com/rsriniva/simple-flask-app` in the `Git Repo URL` field in the Dev Spaces dashboard.
+
+. The workspaces is opened using the default UDI base container image, which contains the Python 3 runtime and developer tools (`pip`, `pip3` etc) by default.
+
+. Open a new terminal in the workspace and run `pip install flask` to install the dependencies for the application.
+
+. Run `python main.py` to start the application. You will be prompted in the bottom right corner to allow port `8080` to be open. Click `yes`.
+
+. You will now be prompted to open the web application. Click `Open in New Tab`, and click `Open` once again in the pop-up
+
+. Verify that you can see the output from the application. It should print `Hello World!`.

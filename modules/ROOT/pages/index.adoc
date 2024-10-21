@@ -1,10 +1,10 @@
-= Securing Access to Red Hat OpenShift DevSpaces
+= Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces
 :navtitle: Home
 
 == Introduction
 
-Welcome to this quick course on the _Securing Access to Red Hat OpenShift DevSpaces_.
-This course is the `third` in a series of `five` courses about Red Hat OpenShift DevSpaces:
+Welcome to this quick course on the _Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces_.
+This course is the `fourth` in a series of `five` courses about Red Hat OpenShift DevSpaces:
 
 . https://redhatquickcourses.github.io/devspaces-intro[Introduction to Red Hat OpenShift Dev Spaces^]
 . https://redhatquickcourses.github.io/devspaces-admin[Red Hat OpenShift Dev Spaces Administration^] 
@@ -12,7 +12,7 @@ This course is the `third` in a series of `five` courses about Red Hat OpenShift
 . Creating and Customizing Workspaces in Red Hat OpenShift Dev Spaces (_This course_)
 . Configuring Plugins in Red Hat OpenShift Dev Spaces (_Under Development_)
 
-This course covers how to secure access to Red Hat OpenShift Dev Spaces and Workspaces.
+This course covers how to create, customize and manage `Workspaces` on Dev Spaces.
 
 NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift Dev Spaces 3.16*. The labs should mostly work in minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
 
