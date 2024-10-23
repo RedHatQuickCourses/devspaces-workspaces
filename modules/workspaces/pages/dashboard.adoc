@@ -2,7 +2,6 @@
 
 The Dev Spaces dashboard is the central web-based user interface for managing and interacting workspaces. The dashboard allows developers to manage their workspaces from a single, user-friendly interface. It's designed to simplify the process of setting up, managing, and collaborating on development projects in a cloud-based environment.
 
-
 The following are some of the tasks that can be performed from the dashboard:
 
 * Create new workspaces

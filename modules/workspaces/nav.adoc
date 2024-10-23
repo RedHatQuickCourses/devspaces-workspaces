@@ -2,6 +2,7 @@
 ** xref:create.adoc[]
 ** xref:udi.adoc[]
 ** xref:dashboard.adoc[]
+** xref:custom.adoc[]
 ** xref:kubedock.adoc[]
 ** xref:ides.adoc[]
 

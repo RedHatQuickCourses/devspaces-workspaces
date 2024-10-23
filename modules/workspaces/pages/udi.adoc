@@ -17,7 +17,7 @@ The UDI also includes a lot of useful developer tools like `git`, `curl`, `jq` a
 
 == Lab: Using the UDI for a Python Web Application
 
-. Fork the Git repository at https://github.com/rsriniva/simple-flask-app to your own GitHub account. This repository contains the source code for a simple Python web application based on the `Flask` framework. It does not contain a `Devfile`.
+. Fork the Git repository at https://github.com/rsriniva/simple-flask-app to your own GitHub account. This repository contains the source code for a simple Python web application based on the `Flask` framework. It does *NOT* contain a `Devfile`.
 
 . Log in to Dev Spaces as `user1` (or any valid user).
 
