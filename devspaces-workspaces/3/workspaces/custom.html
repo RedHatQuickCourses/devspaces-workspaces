@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Customizing Samples in the Dashboard :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="prev" href="dashboard.html">
+    <link rel="next" href="kubedock.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ides.html">IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfiles/index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/registry.html">Devfile Registry</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Workspaces</a></li>
+    <li><a href="custom.html">Samples Dashboard</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Customizing Samples in the Dashboard</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The Dev Spaces dashboard offers a number of getting started samples allowing developers to quickly launch workspaces at the click of a button without providing Git repository URLs or Devfiles.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/dashboard-samples.png" alt="dashboard samples">
+</div>
+<div class="title">Figure 1. Dashboard Getting Started Samples</div>
+</div>
+<div class="paragraph">
+<p>In this section, you will learn how to provide developers an easy way to launch workspaces by clicking on menu entries in the dashboard rather than manually providing Git repository URLs.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_launching_workspaces_from_the_dashboard"><a class="anchor" href="#_lab_launching_workspaces_from_the_dashboard"></a>Lab: Launching Workspaces from the Dashboard</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this hands-on lab, you will add a new launcher to the samples dashboard for an example Rust programming language project.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The samples dashboard in Dev Spaces is populated from JSON files. The sample format is available at <a href="https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json" class="bare">https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json</a>.</p>
+</li>
+<li>
+<p>Inspect the sample Rust application at <a href="https://github.com/rsriniva/rust-devspaces" class="bare">https://github.com/rsriniva/rust-devspaces</a>. This simple example imports a ASCII art library and prints a simple message. Fork this repository to your own GitHub account.</p>
+</li>
+<li>
+<p>Create a new file named <code>rust-sample.json</code> on your local workstation. It consists of a list of JSON objects with fields describing the name of the sample, a brief description, tags, and the URL where the source code and devfile is available for the sample. A base64 encoded SVG image (<code>icon</code> field) is used to provide an intuitive image for the sample when it is displayed in the dashboard. Add content as follows:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  {
+    "id": "rust",
+    "displayName": "Rust",
+    "description": "Rust toolchain with Cargo",
+    "tags": [
+      "Rust",
+      "Cargo",
+      "UBI8"
+    ],
+    "url": "https://github.com/rsriniva/rust-devspaces",
+    "icon": {
+      "mediatype": "image/svg+xml",
+      "base64data": "PHN2ZyB2ZXJzaW9uPSIxLjEiIGhlaWdodD0iMTA2IiB3aWR0aD0iMTA2IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KPGcgaWQ9ImxvZ28iIHRyYW5zZm9ybT0idHJhbnNsYXRlKDUzLCA1MykiPgogIDxwYXRoIGlkPSJyIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLjUsIDAuNSkiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgZD0iCiAgICBNIC05LC0xNSBIIDQgQyAxMiwtMTUgMTIsLTcgNCwtNyBIIC05IFoKICAgIE0gLTQwLDIyIEggMCBWIDExIEggLTkgViAzIEggMSBDIDEyLDMgNiwyMiAxNSwyMiBIIDQwCiAgICBWIDMgSCAzNCBWIDUgQyAzNCwxMyAyNSwxMiAyNCw3IEMgMjMsMiAxOSwtMiAxOCwtMiBDIDMzLC0xMCAyNCwtMjYgMTIsLTI2IEggLTM1CiAgICBWIC0xNSBIIC0yNSBWIDExIEggLTQwIFoiIC8+CiAgPGcgaWQ9ImdlYXIiIG1hc2s9InVybCgjaG9sZXMpIj4KICAgIDxjaXJjbGUgcj0iNDMiIGZpbGw9Im5vbmUiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iOSIgLz4KICAgIDxnIGlkPSJjb2dzIj4KICAgICAgPHBvbHlnb24gaWQ9ImNvZyIgc3Ryb2tlPSJibGFjayIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBwb2ludHM9IjQ2LDMgNTEsMCA0NiwtMyIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgxMS4yNSkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMjIuNTApIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDMzLjc1KSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSg0NS4wMCkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoNTYuMjUpIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDY3LjUwKSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSg3OC43NSkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoOTAuMDApIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDEwMS4yNSkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMTEyLjUwKSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjMuNzUpIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDEzNS4wMCkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMTQ2LjI1KSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgxNTcuNTApIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDE2OC43NSkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMTgwLjAwKSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgxOTEuMjUpIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDIwMi41MCkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMjEzLjc1KSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgyMjUuMDApIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDIzNi4yNSkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMjQ3LjUwKSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgyNTguNzUpIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDI3MC4wMCkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMjgxLjI1KSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgyOTIuNTApIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDMwMy43NSkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMzE1LjAwKSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjY29nIiB0cmFuc2Zvcm09InJvdGF0ZSgzMjYuMjUpIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNjb2ciIHRyYW5zZm9ybT0icm90YXRlKDMzNy41MCkiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI2NvZyIgdHJhbnNmb3JtPSJyb3RhdGUoMzQ4Ljc1KSIgLz4KICAgIDwvZz4KICAgIDxnIGlkPSJtb3VudHMiPgogICAgICA8cG9seWdvbiBpZD0ibW91bnQiIHN0cm9rZT0iYmxhY2siIHN0cm9rZS13aWR0aD0iNiIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgcG9pbnRzPSItNywtNDIgMCwtMzUgNywtNDIiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI21vdW50IiB0cmFuc2Zvcm09InJvdGF0ZSg3MikiIC8+CiAgICAgIDx1c2UgeGxpbms6aHJlZj0iI21vdW50IiB0cmFuc2Zvcm09InJvdGF0ZSgxNDQpIiAvPgogICAgICA8dXNlIHhsaW5rOmhyZWY9IiNtb3VudCIgdHJhbnNmb3JtPSJyb3RhdGUoMjE2KSIgLz4KICAgICAgPHVzZSB4bGluazpocmVmPSIjbW91bnQiIHRyYW5zZm9ybT0icm90YXRlKDI4OCkiIC8+CiAgICA8L2c+CiAgPC9nPgogIDxtYXNrIGlkPSJob2xlcyI+CiAgICA8cmVjdCB4PSItNjAiIHk9Ii02MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMjAiIGZpbGw9IndoaXRlIi8+CiAgICA8Y2lyY2xlIGlkPSJob2xlIiBjeT0iLTQwIiByPSIzIiAvPgogICAgPHVzZSB4bGluazpocmVmPSIjaG9sZSIgdHJhbnNmb3JtPSJyb3RhdGUoNzIpIiAvPgogICAgPHVzZSB4bGluazpocmVmPSIjaG9sZSIgdHJhbnNmb3JtPSJyb3RhdGUoMTQ0KSIgLz4KICAgIDx1c2UgeGxpbms6aHJlZj0iI2hvbGUiIHRyYW5zZm9ybT0icm90YXRlKDIxNikiIC8+CiAgICA8dXNlIHhsaW5rOmhyZWY9IiNob2xlIiB0cmFuc2Zvcm09InJvdGF0ZSgyODgpIiAvPgogIDwvbWFzaz4KPC9nPgo8L3N2Zz4K"
+    }
+  }
+]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log in to the OpenShift cluster as the <code>admin</code> user with the <code>oc</code> CLI, who has <code>cluster-admin</code> privileges.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc login -u admin <em>&lt;OpenShift API URL&gt;</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>You need to create a ConfigMap from the <code>rust-sample.json</code> JSON file as follows. Ensure that the ConfigMap is created in the <code>openshift-devspaces</code> namespace (or wherever you have installed your Dev Spaces instance):</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc create configmap \
+  getting-started-samples --from-file=rust-sample.json \
+  -n openshift-devspaces
+<em>configmap/getting-started-samples created</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>The Dev Spaces dashboard UI uses specific labels on the previously created ConfigMap to render the sample in the dashboard. Run the following command to apply the appropriate labels:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc label configmap \
+  getting-started-samples \
+  app.kubernetes.io/part-of=che.eclipse.org \
+  app.kubernetes.io/component=getting-started-samples \
+  -n openshift-devspaces
+<em>configmap/getting-started-samples labeled</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Log out of all Dev Spaces sessions, and log back in as <code>user1</code>. Verify that a new sample called <code>Rust</code> is visible in the dashboard.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/rust-sample.png" alt="rust sample">
+</div>
+<div class="title">Figure 2. Rust Sample</div>
+</div>
+</li>
+<li>
+<p>Click the new <code>Rust</code> sample and launch a new workspace. Open a new terminal and compile the sample application.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cargo build
+<em>Updating crates.io index
+Locking 6 packages to latest compatible versions
+Adding ferris-says v0.2.1 (latest: v0.3.1)
+Adding smallvec v0.4.5 (latest: v1.13.2)
+Adding textwrap v0.13.4 (latest: v0.16.1)
+Adding unicode-width v0.1.14 (latest: v0.2.0)
+Downloaded ferris-says v0.2.1
+...
+Finished</em></code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Run the application.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ cargo run
+&lt; Hello fellow Rustaceans! &gt;
+ --------------------------
+        \
+         \
+            <em><sub><sup></sub></sup>~</em>
+        \) /  o o  \ (/
+          '_   -   _'
+          / '-----' \</code></pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_disabling_the_internal_devfile_registry"><a class="anchor" href="#_lab_disabling_the_internal_devfile_registry"></a>Lab: Disabling the Internal Devfile Registry</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Devfile and Devfile registries are covered in more detail in the next chapter. However, if you wish to strictly control what samples appear in the dashboard, and if you want to prevent the display of samples shipped by default in Dev Spaces, then you need to disable the <code>Internal Devfile Registry</code> by following the instructions in this lab.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Log in to the OpenShift cluster as the <code>admin</code> user using the <code>oc</code> CLI or the OpenShift web console.</p>
+</li>
+<li>
+<p>Edit the <code>devspaces</code> <strong>CheCluster</strong> CR in the <code>openshift-devspaces</code> namespace, and edit the <code>spec.components.devfileRegistry</code> attribute in the YAML and add the following:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">...
+spec:
+  components:
+    cheServer:
+      debug: false
+      logLevel: INFO
+    dashboard:
+      logLevel: ERROR
+    devWorkspace: {}
+    <strong>devfileRegistry:
+      disableInternalRegistry: true</strong>
+...</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Wait for the Dev Spaces pods to be re-deployed. Sign out of all active Dev Spaces sessions and log back in as the <code>user1</code> user and access the Dev Spaces dashboard. Notice that only the samples you explicitly added by using a custom JSON file appear. The default samples are hidden.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/internal-reg-disabled.png" alt="internal reg disabled">
+</div>
+<div class="title">Figure 3. Internal Devfile Registry Disabled</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="dashboard.html">Dev Spaces Dashboard</a></span>
+  <span class="next"><a href="kubedock.html">Kubedock</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
