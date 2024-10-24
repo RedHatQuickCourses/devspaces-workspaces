@@ -13,7 +13,6 @@ Key features:
 
 In this chapter you will learn how to create, manage and customize developer `Workspaces` in Red Hat OpenShift Dev Spaces.
 
-== Objectives
+== References
 
-* foo
-* bar
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index[Dev Spaces User Guide^]
