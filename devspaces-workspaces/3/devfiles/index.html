@@ -129,117 +129,151 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>A Devfile is a YAML-based configuration file used to describe and manage development environments. Originally introduced as part of the Eclipse Che and OpenShift development ecosystems, it has since gained broader adoption. A Devfile defines the dependencies, tools, and environments required for a developer to build, test, and run applications consistently across different platforms. It can be used in cloud-native development environments, especially in Kubernetes-based systems.</p>
+<p>A Devfile is a YAML-based configuration file used to describe and manage development environments. Originally introduced as part of the Eclipse Che and OpenShift development ecosystems, it has since gained broader adoption.</p>
 </div>
 <div class="paragraph">
-<p>Key Components of a Devfile:
-Projects: Lists the repositories that need to be cloned or initialized for the development environment.
-Components: Defines various containers or plugins (like databases, runtimes) needed in the development workspace.
-Commands: Specifies tasks or actions such as "build," "run," and "test" that can be executed within the environment.
-Events: Allows automation of tasks at certain stages, such as before starting or after stopping a container.
-Advantages of Using a Devfile:
-Consistent Environments:</p>
+<p>Devfiles help streamline development by providing a consistent, automated, and cloud-native approach to setting up and managing development environments. This makes it particularly beneficial for teams working on modern, distributed, and containerized applications.</p>
 </div>
 <div class="paragraph">
-<p>Developers can define all aspects of the development environment in one place. This ensures that environments are consistent across different machines or teams, reducing "it works on my machine" issues.
-Cloud-Native Development:</p>
+<p>A Devfile defines the dependencies, tools, and configuration required for a developer to build, test, and run applications consistently across different platforms. It is mainly used in cloud-native development environments, especially in Kubernetes and OpenShift based platforms.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_benefits_of_using_a_devfile"><a class="anchor" href="#_benefits_of_using_a_devfile"></a>Benefits of Using a Devfile:</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Consistent Environments</dt>
+<dd>
+<p>Developers can define all aspects of the development environment in one place. This ensures that environments are consistent across different machines or teams, reducing "it works on my machine" issues.</p>
+</dd>
+<dt class="hdlist1">Cloud-Native Development</dt>
+<dd>
+<p>Devfiles are designed to work seamlessly with cloud-native environments like Kubernetes or OpenShift, enabling rapid scaling, collaboration, and on-demand provisioning of development resources.</p>
+</dd>
+<dt class="hdlist1">Portability</dt>
+<dd>
+<p>Since the Devfile is declarative and uses standard components, it can be easily ported across different development setups and infrastructure, including cloud-based Integrated Development Environments (IDEs) like OpenShift Dev Spaces.</p>
+</dd>
+<dt class="hdlist1">Simplifies Onboarding</dt>
+<dd>
+<p>New developers can get up and running quickly by simply cloning the Devfile and spinning up the predefined environment, reducing the setup time for new projects or contributors.</p>
+</dd>
+<dt class="hdlist1">Collaboration and Versioning</dt>
+<dd>
+<p>Devfiles can be stored in source control along with the project source code, making it easy to version, share, and collaborate on development environments in the same way as with code.</p>
+</dd>
+<dt class="hdlist1">Support for Multiple Languages</dt>
+<dd>
+<p>Devfiles are flexible and can be used with various programming languages, frameworks, and technologies, making them adaptable to a wide range of development projects.</p>
+</dd>
+<dt class="hdlist1">Extensible and Customizable</dt>
+<dd>
+<p>Devfiles can be extended and customized to suit specific development workflows by adding new components or adjusting commands, making them a powerful tool for developers with diverse needs.</p>
+</dd>
+</dl>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+It is a good practice to always include a Devfile to create a Workspace and customize the environment to your application needs. You do not mandatorily need a Devfile to start a workspace. If you do not include a Devfile in your project repository, Red Hat OpenShift Dev Spaces automatically loads a default Devfile with the Universal Developer Image (UDI) as the base container image.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_components_of_a_devfile"><a class="anchor" href="#_key_components_of_a_devfile"></a>Key Components of a Devfile:</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Projects</dt>
+<dd>
+<p>Lists the repositories that need to be cloned or initialized for the development environment.</p>
+</dd>
+<dt class="hdlist1">Components</dt>
+<dd>
+<p>Defines various containers or plugins (like databases, runtimes) needed in the development workspace.</p>
+</dd>
+<dt class="hdlist1">Commands</dt>
+<dd>
+<p>Specifies tasks or actions such as "build," "run," and "test" that can be executed within the environment.</p>
+</dd>
+<dt class="hdlist1">Events</dt>
+<dd>
+<p>Allows automation of tasks at certain stages, such as before starting or after stopping a container.</p>
+</dd>
+</dl>
 </div>
 <div class="paragraph">
-<p>Devfiles are designed to work seamlessly with cloud-native environments like Kubernetes or OpenShift, enabling rapid scaling, collaboration, and on-demand provisioning of development resources.
-Portability:</p>
+<p>An example Devfile, defining a development environment for a simple Node.js application that communicates with a PostgreSQL database is provided below:</p>
 </div>
-<div class="paragraph">
-<p>Since the Devfile is declarative and uses standard components, it can be easily ported across different development setups and infrastructure, including cloud-based Integrated Development Environments (IDEs) like Eclipse Che.
-Automation:</p>
-</div>
-<div class="paragraph">
-<p>By defining commands and events in the Devfile, repetitive tasks such as builds, tests, and deployments can be automated, improving productivity and reducing manual errors.
-Simplifies Onboarding:</p>
-</div>
-<div class="paragraph">
-<p>New developers can get up and running quickly by simply cloning the Devfile and spinning up the predefined environment, reducing the setup time for new projects or contributors.
-Collaboration and Versioning:</p>
-</div>
-<div class="paragraph">
-<p>Devfiles can be stored in source control along with the project’s code, making it easy to version, share, and collaborate on development environments in the same way as with code.
-Support for Multiple Languages:</p>
-</div>
-<div class="paragraph">
-<p>Devfiles are flexible and can be used with various programming languages, frameworks, and technologies, making them adaptable to a wide range of development projects.
-Extensible and Customizable:</p>
-</div>
-<div class="paragraph">
-<p>Devfiles can be extended and customized to suit specific development workflows by adding new components or adjusting commands, making them a powerful tool for developers with diverse needs.
-In summary, a Devfile helps streamline development by providing a consistent, automated, and cloud-native approach to setting up and managing development environments. This makes it particularly beneficial for teams working on modern, distributed, and containerized applications.</p>
-</div>
-<div class="paragraph">
-<p>Here’s an example of a Devfile in YAML format, defining a development environment for a simple Node.js application. This includes components like the application runtime, the project to be cloned, and commands to build, run, and test the app.</p>
-</div>
-<div class="paragraph">
-<p>schemaVersion: 2.1.0</p>
-</div>
-<div class="paragraph">
-<p>metadata:
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.2.0
+
+metadata: <i class="conum" data-value="1"></i><b>(1)</b>
   name: nodejs-sample-app
   version: 1.0.0
-  description: Devfile for a sample Node.js application</p>
-</div>
-<div class="paragraph">
-<p>projects:
+  description: Devfile for a sample Node.js application
+  icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/node-js.svg
+  tags:
+    - Node.js
+    - Express
+    - ubi8
+
+projects: <i class="conum" data-value="2"></i><b>(2)</b>
   - name: nodejs-app
     source:
       type: git
       location: "https://github.com/some-repository/nodejs-app.git"
-      branch: main</p>
-</div>
-<div class="paragraph">
-<p>components:
+      branch: main
+
+components:
   - name: nodejs
     container:
-      image: "node:16"
+      image: quay.io/devfile/universal-developer-image:ubi8-latest <i class="conum" data-value="3"></i><b>(3)</b>
       memoryLimit: 512Mi
       mountSources: true
       command: ["npm"]
       args: ["start"]
-      volumeMounts:
+      volumeMounts: <i class="conum" data-value="4"></i><b>(4)</b>
         - name: node-modules
           path: "/projects/node_modules"
-      endpoints:
+      endpoints: <i class="conum" data-value="5"></i><b>(5)</b>
         - name: "app"
           targetPort: 3000
           exposure: public
-          protocol: http</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>name: postgres-db
-container:
-  image: "postgres:13"
-  memoryLimit: 512Mi
-  env:</p>
-</li>
-<li>
-<p>name: POSTGRES_USER
-value: user</p>
-</li>
-<li>
-<p>name: POSTGRES_PASSWORD
-value: password</p>
-</li>
-<li>
-<p>name: POSTGRES_DB
-    value: devdb
-volumeMounts:</p>
-</li>
-<li>
-<p>name: db-data
-path: "/var/lib/postgresql/data"</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>commands:
+          protocol: http
+
+  - name: postgres-db
+    container:
+      image: "postgres:13" <i class="conum" data-value="6"></i><b>(6)</b>
+      memoryLimit: 512Mi
+      endpoints:
+        - name: postgres
+          exposure: internal
+          targetPort: 5432
+          attributes:
+            discoverable: 'true'
+      env:
+        - name: POSTGRES_USER
+          value: user
+        - name: POSTGRES_PASSWORD
+          value: password
+        - name: POSTGRES_DB
+          value: devdb
+      volumeMounts:
+        - name: db-data
+          path: "/var/lib/postgresql/data"
+
+commands: <i class="conum" data-value="7"></i><b>(7)</b>
   - id: install
     exec:
       component: nodejs
@@ -247,255 +281,118 @@ path: "/var/lib/postgresql/data"</p>
       workingDir: /projects/nodejs-app
       group:
         kind: build
-        isDefault: true</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>id: run
-exec:
-  component: nodejs
-  commandLine: "npm run dev"
-  workingDir: /projects/nodejs-app
-  group:
-    kind: run
-    isDefault: true</p>
-</li>
-<li>
-<p>id: test
-exec:
-  component: nodejs
-  commandLine: "npm test"
-  workingDir: /projects/nodejs-app
-  group:
-    kind: test
-    isDefault: true</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>events:
+        isDefault: true
+
+  - id: run
+    exec:
+      component: nodejs
+      commandLine: "npm run dev"
+      workingDir: /projects/nodejs-app
+      group:
+        kind: run
+        isDefault: true
+
+  - id: test
+    exec:
+      component: nodejs
+      commandLine: "npm test"
+      workingDir: /projects/nodejs-app
+      group:
+        kind: test
+        isDefault: true
+
+events: <i class="conum" data-value="8"></i><b>(8)</b>
   preStart:
     - install
   postStop:
     - id: cleanup
       exec:
         component: nodejs
-        commandLine: "npm run clean"</p>
-</div>
-<div class="paragraph">
-<p>volumes:
+        commandLine: "npm run clean"
+
+volumes: <i class="conum" data-value="9"></i><b>(9)</b>
   - name: node-modules
     size: 1Gi
   - name: db-data
-    size: 1Gi</p>
+    size: 1Gi</code></pre>
 </div>
-<div class="paragraph">
-<p>Breakdown of the Example:
-Metadata:</p>
 </div>
-<div class="paragraph">
-<p>Contains basic information about the project like the name, version, and description.
-Projects:</p>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Devfile metadata. Name, description, tags and an icon declaration.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Project details and location of Git repository</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Container image to be loaded in the Workspace. In this case, we load the UDI since it contains a Node.js runtime.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Mount data volumes inside the container. These reference volume names declared in the <code>volumes</code> section.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Network endpoints to be exposed in the workspace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Declaration of the PostgreSQL database container, along with volume mounts, resource limits and some environment variables used by the container.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Commands that can be run in this workspace. In this case, to install NPM packages, run Node.js and run tests. These are made available in the IDE as <code>Tasks</code> in the <code>Task</code> menu.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Event hooks. These commands are run at startup and shutdown of the workspace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Volume name and size declarations. These are mounted in the <code>volumeMounts</code> section of the devfile.</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>Specifies a project that will be cloned from a Git repository into the workspace (nodejs-app).
-location: URL of the Git repository and the branch to be checked out.
-Components:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Red Hat OpenShift Dev Spaces is expected to work with most of the popular images defined in the components section of a Devfile. For production purposes, it is recommended to use one of the Universal Base Images (UBI) from Red Hat as a base image for defining the developer environment.
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>Defines two containers:
-Node.js container for running the application.
-PostgreSQL database container for local development purposes.
-Each container has a memory limit, environment variables (for the database), and volume mounts for persistence (node_modules for dependencies, db-data for PostgreSQL data).
-Endpoints are also specified (exposing the app on port 3000).
-Commands:</p>
-</div>
-<div class="paragraph">
-<p>Install: Runs npm install to install dependencies when the environment is set up.
-Run: Starts the Node.js app using npm run dev.
-Test: Executes the test suite with npm test.
-Commands are grouped into build, run, and test categories, allowing tools like Eclipse Che to present them appropriately in the UI.
-Events:</p>
-</div>
-<div class="paragraph">
-<p>PreStart event installs dependencies before the app starts.
-PostStop event runs a cleanup task after the environment is stopped.
-Volumes:</p>
-</div>
-<div class="paragraph">
-<p>Persistent storage for node_modules and PostgreSQL data is provided using Kubernetes volumes.
-Advantages of This Example:
-Reproducibility: Any developer cloning this repository can instantly replicate the development environment, complete with the necessary tools and databases.
-Automation: Key actions like building, running, and testing are automated through predefined commands.
-Isolation: Containers ensure that the Node.js application and PostgreSQL database are isolated, consistent, and easy to manage.</p>
-</div>
-<div class="paragraph">
-<p>Devfile for a Quarkus back-end application. Quarkus is a Kubernetes-native Java stack tailored for OpenJDK HotSpot and GraalVM. This devfile sets up a development environment that builds, runs, and tests the Quarkus application in a containerized setup.</p>
-</div>
-<div class="paragraph">
-<p>schemaVersion: 2.1.0</p>
-</div>
-<div class="paragraph">
-<p>metadata:
-  name: quarkus-backend-app
-  version: 1.0.0
-  description: Devfile for a Quarkus back-end application</p>
-</div>
-<div class="paragraph">
-<p>projects:
-  - name: quarkus-app
-    source:
-      type: git
-      location: "https://github.com/some-repository/quarkus-app.git"
-      branch: main</p>
-</div>
-<div class="paragraph">
-<p>components:
-  - name: quarkus
-    container:
-      image: "quay.io/quarkus/ubi-quarkus-mandrel:22.3-java17"
-      memoryLimit: 1Gi
-      mountSources: true
-      endpoints:
-        - name: "quarkus"
-          targetPort: 8080
-          exposure: public
-          protocol: http
-      env:
-        - name: QUARKUS_LAUNCH_DEVMODE
-          value: "true"</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>name: postgres-db
-container:
-  image: "postgres:13"
-  memoryLimit: 512Mi
-  env:</p>
-</li>
-<li>
-<p>name: POSTGRES_USER
-value: user</p>
-</li>
-<li>
-<p>name: POSTGRES_PASSWORD
-value: password</p>
-</li>
-<li>
-<p>name: POSTGRES_DB
-    value: quarkusdb
-volumeMounts:</p>
-</li>
-<li>
-<p>name: db-data
-path: "/var/lib/postgresql/data"</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>commands:
-  - id: build
-    exec:
-      component: quarkus
-      commandLine: "./mvnw clean install"
-      workingDir: /projects/quarkus-app
-      group:
-        kind: build
-        isDefault: true</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>id: run
-exec:
-  component: quarkus
-  commandLine: "./mvnw compile quarkus:dev"
-  workingDir: /projects/quarkus-app
-  group:
-    kind: run
-    isDefault: true</p>
-</li>
-<li>
-<p>id: test
-exec:
-  component: quarkus
-  commandLine: "./mvnw test"
-  workingDir: /projects/quarkus-app
-  group:
-    kind: test
-    isDefault: true</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>events:
-  preStart:
-    - build</p>
-</div>
-<div class="paragraph">
-<p>volumes:
-  - name: db-data
-    size: 1Gi</p>
-</div>
-<div class="paragraph">
-<p>Breakdown of This Devfile:
-Metadata:</p>
-</div>
-<div class="paragraph">
-<p>Defines the project’s name (quarkus-backend-app), version (1.0.0), and description.
-Projects:</p>
-</div>
-<div class="paragraph">
-<p>Specifies the Quarkus application project to be cloned from a Git repository.
-Components:</p>
-</div>
-<div class="paragraph">
-<p>Defines two main containers:
-Quarkus container:
-Uses the Mandrel-based image for Quarkus with Java 17 (this is a native-image enabled build image for Quarkus).
-Limits the memory usage to 1Gi.
-Exposes port 8080 where the Quarkus application will run.
-An environment variable QUARKUS_LAUNCH_DEVMODE is set to true for enabling live reload (developer mode).
-PostgreSQL database container:
-Uses the postgres:13 image.
-Defines environment variables for the database user, password, and database name.
-Mounts a persistent volume (db-data) to persist the PostgreSQL data across container restarts.
-Commands:</p>
-</div>
-<div class="paragraph">
-<p>Build: Uses ./mvnw clean install to build the Quarkus application and its dependencies.
-Run: Runs the Quarkus application in development mode using ./mvnw compile quarkus:dev (which enables live reload, debugging, and fast feedback loops).
-Test: Executes the test suite with ./mvnw test.
-These commands are tied to the Quarkus container, and they are grouped under build, run, and test respectively.
-Events:</p>
-</div>
-<div class="paragraph">
-<p>PreStart: Ensures the application is built before starting the development environment.
-Volumes:</p>
-</div>
-<div class="paragraph">
-<p>Defines a db-data volume for persisting the PostgreSQL database across environment restarts. It prevents the loss of data during container lifecycle changes.
-Advantages for Quarkus Application:
-Live Reload in Dev Mode: With quarkus:dev, developers can benefit from Quarkus’s live reload feature, speeding up the development cycle by avoiding manual restarts.
-Database Integration: The PostgreSQL container ensures that the Quarkus application has a dedicated database, making it ideal for backend development.
-Automation of Build/Run/Testing: The commands automate common tasks like building, running, and testing the Quarkus application.
-Isolation: Each component (Quarkus runtime and database) is containerized, ensuring a clean and consistent environment across development setups.
-This configuration enables developers to quickly set up a consistent and repeatable environment for Quarkus backend development, complete with database support and automated workflows.</p>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Some images cannot be used as is for defining a developer environment since <code>Visual Studio Code - Open Source</code> cannot be started with missing <code>openssl</code> and <code>libbrotli</code> packages. Missing libraries should be explicitly installed inn the <code>Dockerfile</code> for the container, that is using <code>RUN yum install compat-openssl11 libbrotli</code>.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_objectives"><a class="anchor" href="#_objectives"></a>Objectives</h2>
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p>foo</p>
+<p><a href="https://registry.devfile.io/viewer" target="_blank" rel="noopener">Public Community Devfile Registry</a></p>
 </li>
 <li>
-<p>bar</p>
+<p><a href="https://devfile.io" target="_blank" rel="noopener">Devfile website</a></p>
 </li>
 </ul>
 </div>
