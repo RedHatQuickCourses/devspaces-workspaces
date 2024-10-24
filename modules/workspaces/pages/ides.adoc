@@ -1,1 +1,65 @@
-# IDEs in Dev Spaces
+= Multiple IDEs in Dev Spaces
+
+The default IDE in a new workspace is `Microsoft Visual Studio Code - Open Source`. Alternatively, you can choose `IntelliJ IDEA Community Edition` as an IDE for Java and JVM based applications.
+
+NOTE: IntelliJ IDEA Community Edition is still in Tech Preview (as of Nov 2024).
+
+There are multiple levels at which you can configure the default IDE for a Workspace. Configuration at lower levels can override the setting at higher levels. Lets say you want to set the IntelliJ IDEA Community Edition as the default IDE for all workspaces, you can do this at three levels:
+
+== Setting Default IDE for all Workspaces
+
+Edit the `devspaces` CheCluster CR YAML and add the following to the `.spec.devEnvironments.defaultEditor` section:
+
+[source,yaml,subs=+quotes]
+----
+spec:
+  components:
+...
+  devEnvironments:
+...
+    defaultEditor: che-incubator/che-idea/latest
+...
+----
+
+You can also use the `oc patch` command as follows:
+
+[source,bash,subs=+quotes]
+----
+$ oc patch checluster/devspaces \
+  -n openshift-devspaces \
+  --type='merge' \
+  -p '{"spec":{"devEnvironments":{"defaultEditor": "che-incubator/che-idea/latest"}}}'
+_checluster.org.eclipse.che/devspaces patched_
+----
+
+== Setting IDE in Git Repository
+
+You can set a default IDE for a workspace in your Git repositories by creating a `.che/che-editor.yaml` file at the root of the repository and add the following content to the file:
+
+[source,yaml,subs=+quotes]
+----
+id: che-incubator/che-idea/latest
+----
+
+Now, when you launch a workspace from Dev Spaces, this file is parsed and the editor is set based on the `id` value field.
+
+== Setting IDE in URL Parameter
+
+You can also launch a workspace with a specific editor by passing the editor ID value as a URL parameter. For example, let's say you want to open the GitHub repository https://github.com/agiertli/quarkus-workshops in Dev Spaces using the IntelliJ IDEA Community Edition IDE, pass a `che-editor` URL parameter and the editor ID as the value as follows:
+
+https://devspaces.apps.cluster.example.com/dashboard/#/https://github.com/agiertli/quarkus-workshops?che-editor=che-incubator/che-idea/latest 
+
+TIP: In all the above cases replace the `che-incubator/che-idea/latest` value with `che-incubator/che-code/latest` if you wish to set `Visual Studio Code - Open Source` as the default IDE
+
+== References
+
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#ides-in-workspaces-_supported_ides[IDE Support in Dev Spaces^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#url-parameter-for-the-ide[URL parameter for the IDE^]
+
+== Lab: Setting and Overriding Default IDE
+
+. Set the default IDE at the CheCluster CR level, or in a Git repository for an application.
+
+. Launch the workspace and verify that your default editor is displayed.
+
+. Override the default editor by passing an alternate editor ID in the URL parameter when you launch the workspace for the same application as above and verify that the editor you passed in the URL parameter is displayed.

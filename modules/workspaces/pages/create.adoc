@@ -16,7 +16,31 @@ You can use a Git repository URL in your browser to launch a new workspace that 
 
 A number of useful starter examples for various programming language runtimes and frameworks is available at https://github.com/orgs/devspaces-samples/repositories.
 
-> TODO: Add different URL params and show how workspaces can be created by passing different URL params
+=== Launching Workspaces using Dev Spaces URL
+
+The Dev Spaces dashboard is an intuitive, easy to use web based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.
+
+If your Dev Spaces fully qualified domain name (FQDN) is https://openshift_dev_spaces_fqdn, then you can launch a workspace by navigating to:
+
+> https://<openshift_dev_spaces_fqdn>#git_repository_url
+
+For example, to open the source code of a GitHub repository in a Dev Spaces workspace:
+
+> https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world
+
+The above URL creates a new workspace with a clone of the default branch in the Git repository (usually `main`, but it depends on what branch you have configured as the default).
+
+To start a new workspace with a clone of the `staging` branch:
+
+> https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/tree/staging
+
+Replace `staging` with any other branch in your repository to open the source code tree of that branch.
+
+If you have a pull request in your GitHub repository with an ID of 100, then to open the code in the PR:
+
+> https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/pull/100
+
+Consult the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps etc.
 
 == Lab: Create a Workspace using a Git Repository
 

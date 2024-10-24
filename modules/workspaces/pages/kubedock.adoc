@@ -65,9 +65,11 @@ components:
           targetPort: 2475*
 ----
 +
-You need to two environment variables to the devfile (`KUBEDOCK_ENABLED` and `DOCKER_HOST`). The first enabled Kubedock in the workspace, and the second indicates that the local daemon should be used for container builds. You also need to add an `endpoint` section and declare the port at which Kubedock daemon should listen.
+You need to two environment variables to the devfile (`KUBEDOCK_ENABLED` and `DOCKER_HOST`). The first enabled Kubedock in the workspace, and the second indicates that the local daemon should be used for container builds. You also need to add an `endpoint` section and declare the port at which the Kubedock daemon should listen.
 
-. Log in to Dev Spaces as `user``. Launch a new workspace using the Git URL https://github.com/rsriniva/kubedock-test.
+. Fork this repository into your own GitHub account.
+
+. Log in to Dev Spaces as `user``. Launch a new workspace using the Git URL https://github.com/<your_github_user>/kubedock-test.
 
 . Once the workspace is fully loaded, open a new terminal window and verify that Podman is working correctly
 +
