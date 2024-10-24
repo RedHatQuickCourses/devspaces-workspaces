@@ -65,7 +65,7 @@
     <a class="nav-link" href="kubedock.html">Kubedock</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="ides.html">IDEs in Dev Spaces</a>
+    <a class="nav-link" href="ides.html">Multiple IDEs in Dev Spaces</a>
   </li>
 </ul>
   </li>
@@ -263,11 +263,14 @@ components:
 </div>
 </div>
 <div class="paragraph">
-<p>You need to two environment variables to the devfile (<code>KUBEDOCK_ENABLED</code> and <code>DOCKER_HOST</code>). The first enabled Kubedock in the workspace, and the second indicates that the local daemon should be used for container builds. You also need to add an <code>endpoint</code> section and declare the port at which Kubedock daemon should listen.</p>
+<p>You need to two environment variables to the devfile (<code>KUBEDOCK_ENABLED</code> and <code>DOCKER_HOST</code>). The first enabled Kubedock in the workspace, and the second indicates that the local daemon should be used for container builds. You also need to add an <code>endpoint</code> section and declare the port at which the Kubedock daemon should listen.</p>
 </div>
 </li>
 <li>
-<p>Log in to Dev Spaces as <code>user`</code>. Launch a new workspace using the Git URL <a href="https://github.com/rsriniva/kubedock-test" class="bare">https://github.com/rsriniva/kubedock-test</a>.</p>
+<p>Fork this repository into your own GitHub account.</p>
+</li>
+<li>
+<p>Log in to Dev Spaces as <code>user`</code>. Launch a new workspace using the Git URL <a href="https://github.com/&lt;your_github_user&gt;/kubedock-test" class="bare">https://github.com/&lt;your_github_user&gt;/kubedock-test</a>.</p>
 </li>
 <li>
 <p>Once the workspace is fully loaded, open a new terminal window and verify that Podman is working correctly</p>
@@ -342,7 +345,7 @@ If you try to run this locally built container image, it will fail. You need to 
 </div>
 <nav class="pagination">
   <span class="prev"><a href="custom.html">Samples Dashboard</a></span>
-  <span class="next"><a href="ides.html">IDEs in Dev Spaces</a></span>
+  <span class="next"><a href="ides.html">Multiple IDEs in Dev Spaces</a></span>
 </nav>
 </article>
   </div>

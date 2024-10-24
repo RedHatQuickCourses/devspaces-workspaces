@@ -65,7 +65,7 @@
     <a class="nav-link" href="kubedock.html">Kubedock</a>
   </li>
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="ides.html">IDEs in Dev Spaces</a>
+    <a class="nav-link" href="ides.html">Multiple IDEs in Dev Spaces</a>
   </li>
 </ul>
   </li>
@@ -162,12 +162,60 @@
 <div class="paragraph">
 <p>A number of useful starter examples for various programming language runtimes and frameworks is available at <a href="https://github.com/orgs/devspaces-samples/repositories" class="bare">https://github.com/orgs/devspaces-samples/repositories</a>.</p>
 </div>
+<div class="sect2">
+<h3 id="_launching_workspaces_using_dev_spaces_url"><a class="anchor" href="#_launching_workspaces_using_dev_spaces_url"></a>Launching Workspaces using Dev Spaces URL</h3>
+<div class="paragraph">
+<p>The Dev Spaces dashboard is an intuitive, easy to use web based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.</p>
+</div>
+<div class="paragraph">
+<p>If your Dev Spaces fully qualified domain name (FQDN) is <a href="https://openshift_dev_spaces_fqdn" class="bare">https://openshift_dev_spaces_fqdn</a>, then you can launch a workspace by navigating to:</p>
+</div>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>TODO: Add different URL params and show how workspaces can be created by passing different URL params</p>
+<p><a href="https://&lt;openshift_dev_spaces_fqdn&gt;#git_repository_url" class="bare">https://&lt;openshift_dev_spaces_fqdn&gt;#git_repository_url</a></p>
 </div>
 </blockquote>
+</div>
+<div class="paragraph">
+<p>For example, to open the source code of a GitHub repository in a Dev Spaces workspace:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><a href="https://&lt;openshift_dev_spaces_fqdn&gt;#https://github.com/che-samples/cpp-hello-world" class="bare">https://&lt;openshift_dev_spaces_fqdn&gt;#https://github.com/che-samples/cpp-hello-world</a></p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>The above URL creates a new workspace with a clone of the default branch in the Git repository (usually <code>main</code>, but it depends on what branch you have configured as the default).</p>
+</div>
+<div class="paragraph">
+<p>To start a new workspace with a clone of the <code>staging</code> branch:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><a href="https://&lt;openshift_dev_spaces_fqdn&gt;#https://github.com/che-samples/cpp-hello-world/tree/staging" class="bare">https://&lt;openshift_dev_spaces_fqdn&gt;#https://github.com/che-samples/cpp-hello-world/tree/staging</a></p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Replace <code>staging</code> with any other branch in your repository to open the source code tree of that branch.</p>
+</div>
+<div class="paragraph">
+<p>If you have a pull request in your GitHub repository with an ID of 100, then to open the code in the PR:</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p><a href="https://&lt;openshift_dev_spaces_fqdn&gt;#https://github.com/che-samples/cpp-hello-world/pull/100" class="bare">https://&lt;openshift_dev_spaces_fqdn&gt;#https://github.com/che-samples/cpp-hello-world/pull/100</a></p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Consult the product documentation at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url" class="bare">https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url</a> for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps etc.</p>
+</div>
 </div>
 </div>
 </div>
