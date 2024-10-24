@@ -49,6 +49,10 @@ You can also launch a workspace with a specific editor by passing the editor ID 
 
 https://devspaces.apps.cluster.example.com/dashboard/#/https://github.com/agiertli/quarkus-workshops?che-editor=che-incubator/che-idea/latest 
 
+In all cases, your IntelliJ IDEA workspace should look like below:
+
+image::project-idea.png[title=IntelliJ IDEA Community Edition IDE]
+
 TIP: In all the above cases replace the `che-incubator/che-idea/latest` value with `che-incubator/che-code/latest` if you wish to set `Visual Studio Code - Open Source` as the default IDE
 
 == References
