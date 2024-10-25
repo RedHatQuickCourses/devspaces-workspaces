@@ -126,74 +126,117 @@
 </aside>
 <article class="doc">
 <h1 class="page">Devfile Registry</h1>
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph">
-<p>A Devfile Registry is a central repository or catalog that stores a collection of predefined Devfiles. These devfiles can be used by developers to quickly create and configure consistent development environments for various applications, frameworks, and languages. Devfile registries are often associated with cloud-native development platforms like Kubernetes, OpenShift, or Eclipse Che, where they help simplify the process of setting up and managing development environments in a containerized or cloud-native context.</p>
+<p>A <code>Devfile Registry</code> is a central repository or catalog that stores a collection of predefined <code>Devfiles</code>. These devfiles can be used by developers to quickly create and configure consistent development environments for various applications, frameworks, and programming languages.</p>
 </div>
 <div class="paragraph">
-<p>Components of a Devfile Registry:
-Devfile Definitions:</p>
+<p>The registry is often hosted as a service, which can be publicly accessible (<a href="https://registry.devfile.io/" class="bare">https://registry.devfile.io/</a>) or private (self-hosted). The registry server provides access to the available devfiles and facilitates their discovery and retrieval.</p>
 </div>
 <div class="paragraph">
-<p>Each devfile in the registry is a YAML file that defines the structure and dependencies of a particular development environment, such as the necessary components (e.g., runtimes, tools), commands, and events.
-Stacks or Samples:</p>
+<p>An example of a widely used devfile registry is <a href="https://registry.devfile.io" class="bare">https://registry.devfile.io</a>. It offers a variety of predefined devfiles for languages like Python, Java, Node.js, Quarkus, and more.</p>
 </div>
-<div class="paragraph">
-<p>Stacks: These are predefined devfiles that provide a base for specific programming languages or technologies (e.g., Node.js, Quarkus, Python). Stacks can be extended or customized.
-Samples: Complete example projects that include both the devfile and application code, which users can clone and use as starting points.
-Registry Server:</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/community-registry.png" alt="community registry">
 </div>
-<div class="paragraph">
-<p>The registry is often hosted as a service, which can be publicly accessible (global) or private (self-hosted). The registry server provides access to the available devfiles and facilitates their discovery and retrieval.
-How a Devfile Registry Works:
-Developers interact with the registry through their development platform (such as an IDE or cloud IDE). They can browse the registry, select an appropriate devfile (for example, a Quarkus stack), and instantly pull the configuration to set up their environment.
-Once the devfile is fetched, the environment is provisioned, including the necessary tools, runtimes, and dependencies defined in the devfile.
-Advantages of a Devfile Registry:
-Standardization and Consistency:</p>
+<div class="title">Figure 1. Devfile Community Registry</div>
 </div>
-<div class="paragraph">
-<p>A registry provides predefined devfiles that follow a standard structure, ensuring that all environments created from the same devfile are identical. This reduces discrepancies between different team members’ development environments and production environments.
-Rapid Environment Setup:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Dev Spaces deploys its own internal registry that contains the Devfiles for the "getting started sample" applications. Adding your own devfiles to the internal registry is covered in the <a href="../workspaces/custom.html" class="xref page">Customizing Samples in the Dashboard</a> section.
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>Developers can quickly set up fully configured development environments by selecting an appropriate devfile from the registry. This removes the need for manual setup of tools, libraries, and services, saving time and reducing errors.
-Supports Diverse Tech Stacks:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can create and run your own customized devfile registry outside the cluster. The process to do so is outside the scope of this course. Consult the README file at <a href="https://github.com/devfile/registry" class="bare">https://github.com/devfile/registry</a> for details.
+</td>
+</tr>
+</table>
 </div>
-<div class="paragraph">
-<p>A registry typically contains devfiles for a wide range of languages, frameworks, and tools (e.g., Java, Node.js, Python, databases, CI/CD tools). This diversity allows teams to easily adopt new technologies without worrying about environment configuration.
-Scalability in Cloud-Native Development:</p>
 </div>
-<div class="paragraph">
-<p>In Kubernetes or cloud-native environments, devfiles from the registry can be used to dynamically provision development environments on demand. This is particularly useful in distributed teams, where cloud-based development environments can scale as needed.
-Collaboration and Sharing:</p>
 </div>
+<div class="sect1">
+<h2 id="_lab_creating_a_workspace_from_the_community_devfile_registry"><a class="anchor" href="#_lab_creating_a_workspace_from_the_community_devfile_registry"></a>Lab: Creating a Workspace from the Community Devfile Registry</h2>
+<div class="sectionbody">
 <div class="paragraph">
-<p>Teams can create their own devfile registries (private or public) and share development environment configurations within their organization. This fosters collaboration by allowing developers to work on the same stack with identical configurations.
-Versioning and Updates:</p>
+<p>In this hands-on lab, you will browse the public community Devfile catalog and create a workspace from it.</p>
 </div>
-<div class="paragraph">
-<p>Devfile registries can maintain different versions of devfiles, allowing teams to upgrade environments in a controlled manner. For example, if there is a new version of Quarkus, a new devfile for that version can be added to the registry while still maintaining older versions.
-Automation and Integration:</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Using a browser, navigate to <a href="https://devfile.io" class="bare">https://devfile.io</a>. Search for a <code>Spring Boot</code> application. For example, one of the results is <code>Spring Boot using Java</code> at <a href="https://registry.devfile.io/viewer/devfiles/community/java-springboot" class="bare">https://registry.devfile.io/viewer/devfiles/community/java-springboot</a>. Open this item.</p>
+</li>
+<li>
+<p>Click on <code>Raw devfile</code> in the right sidebar (below <code>Resources</code>). Copy the resulting URL. It defines a devfile for a basic Spring Boot application.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/raw-devfile-link.png" alt="raw devfile link">
 </div>
-<div class="paragraph">
-<p>The registry can be integrated into CI/CD pipelines or automated workflows. For example, a devfile can be pulled from the registry during the pipeline setup phase to configure the environment for automated testing, building, or deployment.
-Customization and Extensibility:</p>
+<div class="title">Figure 2. Raw Devfile Link for a Spring Boot Application</div>
 </div>
-<div class="paragraph">
-<p>Devfiles retrieved from a registry can be customized and extended to suit project-specific needs. Developers can modify base stacks by adding new tools or adjusting configurations without starting from scratch.
-Easier Onboarding for New Developers:</p>
+</li>
+<li>
+<p>Log in to the Dev Spaces dashboard as <code>user1</code>.</p>
+</li>
+<li>
+<p>Paste the URL for the Spring Boot devfile URL in the <code>Git repo URL</code> field and click <code>Create &amp; Open</code> to launch a new workspace.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sb-url.png" alt="sb url">
 </div>
-<div class="paragraph">
-<p>New team members can quickly get up and running by pulling an existing devfile from the registry. This reduces onboarding time, as they do not have to manually configure or install dependencies and tools.
-Cloud-Native and Containerized:</p>
+<div class="title">Figure 3. Launch a Spring Boot Application</div>
 </div>
-<div class="paragraph">
-<p>Devfile registries are particularly useful in cloud-native, containerized development environments. By using devfiles from a registry, teams can spin up container-based development environments that are fully isolated and pre-configured.
-Example of a Public Devfile Registry:
-An example of a widely used devfile registry is Eclipse Che’s Devfile Registry. It offers a variety of predefined devfiles for languages like Python, Java, Node.js, Quarkus, and more. Developers can easily access and integrate these devfiles into their IDEs, such as Eclipse Che or Visual Studio Code, to set up containerized development environments.</p>
+</li>
+<li>
+<p>Wait for a few minutes while the workspace is created.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sb-ws-start.png" alt="sb ws start">
 </div>
-<div class="paragraph">
-<p>Summary:
-A Devfile Registry simplifies the process of setting up consistent, reproducible, and portable development environments by providing a catalog of pre-configured devfiles. This boosts efficiency, reduces setup complexity, and supports scalability in cloud-native and containerized development workflows. It enhances collaboration, especially in distributed teams, and helps ensure that development environments are aligned across the team, minimizing discrepancies between development and production setups.</p>
+<div class="title">Figure 4. Workspace Starting</div>
+</div>
+</li>
+<li>
+<p>Once the workspace loads, you should see the source code the application in the left sidebar. Open the task menu by clicking <code>Terminal &gt; Run Task&#8230;&#8203;</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/devfile-task.png" alt="devfile task">
+</div>
+<div class="title">Figure 5. Devfile Tasks Menu</div>
+</div>
+</li>
+<li>
+<p>Click <code>All Tasks</code> in the dialog to view all the tasks defined in the devfile.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/all-tasks.png" alt="all tasks">
+</div>
+<div class="title">Figure 6. All Tasks in Devfile</div>
+</div>
+</li>
+<li>
+<p>Run the <code>devfile:run</code> task. This will launch a terminal and compile the application code, followed by starting the Spring Boot application. It may take a few minutes to download the dependencies of the application. When it finishes, you should see a prompt in the lower right corner asking you to allow traffic into port <code>8080</code>. Click <code>Yes</code> , followed by <code>Open in New Tab</code> for port <code>8080</code> to view the application output.</p>
+</li>
+<li>
+<p>Press <code>Ctrl + C</code> to stop the application and return to the terminal.</p>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <nav class="pagination">
   <span class="prev"><a href="create.html">Creating a Devfile</a></span>
