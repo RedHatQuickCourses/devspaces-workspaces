@@ -8,6 +8,8 @@ An example of a widely used devfile registry is https://registry.devfile.io. It 
 
 image::community-registry.png[title=Devfile Community Registry]
 
+A number of sample Devfiles for Dev Spaces are available at https://github.com/devspaces-samples. You can explore and customize these samples to your needs.
+
 NOTE: Dev Spaces deploys its own internal registry that contains the Devfiles for the "getting started sample" applications. Adding your own devfiles to the internal registry is covered in the xref:workspaces:custom.adoc[Customizing Samples in the Dashboard] section.
 
 NOTE: You can create and run your own customized devfile registry outside the cluster. The process to do so is outside the scope of this course. Consult the README file at https://github.com/devfile/registry for details.
@@ -43,3 +45,8 @@ image::all-tasks.png[title=All Tasks in Devfile]
 . Run the `devfile:run` task. This will launch a terminal and compile the application code, followed by starting the Spring Boot application. It may take a few minutes to download the dependencies of the application. When it finishes, you should see a prompt in the lower right corner asking you to allow traffic into port `8080`. Click `Yes` , followed by `Open in New Tab` for port `8080` to view the application output.
 
 . Press `Ctrl + C` to stop the application and return to the terminal.
+
+== References
+
+* https://registry.devfile.io/viewer[Public Community Devfile Registry^]
+* https://github.com/devspaces-samples[Dev Spaces devfile samples^]

@@ -32,3 +32,7 @@ The UDI also includes a lot of useful developer tools like `git`, `curl`, `jq` a
 . You will now be prompted to open the web application. Click `Open in New Tab`, and click `Open` once again in the pop-up
 
 . Verify that you can see the output from the application. It should print `Hello World!`.
+
+== References
+
+* https://catalog.redhat.com/software/containers/devspaces/udi-rhel8/622bce914a14c05796114be4[Red Hat OpenShift Dev Spaces - Universal Developer Image^]

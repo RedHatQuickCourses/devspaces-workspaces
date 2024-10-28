@@ -67,3 +67,7 @@ TIP: In all the above cases replace the `che-incubator/che-idea/latest` value wi
 . Launch the workspace and verify that your default editor is displayed.
 
 . Override the default editor by passing an alternate editor ID in the URL parameter when you launch the workspace for the same application as above and verify that the editor you passed in the URL parameter is displayed.
+
+== References
+
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#ides-in-workspaces-_supported_ides[IDE Support in Dev Spaces^]

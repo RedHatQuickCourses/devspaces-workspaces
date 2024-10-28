@@ -61,6 +61,10 @@ In this tab, you can store any SSH key-pairs that you will need to access server
 
 image::ssh-keys.png[title=Add SSH key-pairs]
 
+== References
+
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/administration_guide/index#configuring-dashboard[Configuring the Dev Spaces Dashboard^]
+
 
 
 

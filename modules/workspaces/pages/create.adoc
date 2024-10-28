@@ -97,3 +97,7 @@ image::git-menu.png[title=Git menu in VSCode]
 . Since the workspace uses the UDI base image, OpenShift client tools should be available. Run `oc whoami` and verify that `user1` is displayed. The OpenShift authentication tokens are automatically injected into the workspace. You can directly deploy the application to OpenShift and manage it from within the workspace.
 +
 image::oc-tools.png[title=OpenShift client tool]
+
+== References
+
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#getting-started-with-devspaces[Getting Started with Workspaces^]

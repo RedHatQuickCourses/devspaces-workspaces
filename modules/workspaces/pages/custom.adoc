@@ -129,3 +129,7 @@ spec:
 . Wait for the Dev Spaces pods to be re-deployed. Sign out of all active Dev Spaces sessions and log back in as the `user1` user and access the Dev Spaces dashboard. Notice that only the samples you explicitly added by using a custom JSON file appear. The default samples are hidden.
 +
 image::internal-reg-disabled.png[title=Internal Devfile Registry Disabled]
+
+== References
+
+* * https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/administration_guide/index#configuring-dashboard[Configuring the Dev Spaces Dashboard^]

@@ -127,3 +127,7 @@ volumes: <9>
 NOTE: Red Hat OpenShift Dev Spaces is expected to work with most of the popular images defined in the components section of a Devfile. For production purposes, it is recommended to use one of the Universal Base Images (UBI) from Red Hat as a base image for defining the developer environment.
 
 IMPORTANT: Some images cannot be used as is for defining a developer environment since `Visual Studio Code - Open Source` cannot be started with missing `openssl` and `libbrotli` packages. Missing libraries should be explicitly installed inn the `Dockerfile` for the container, that is using `RUN yum install compat-openssl11 libbrotli`.
+
+== References
+
+* https://registry.devfile.io/viewer[Public Community Devfile Registry^]

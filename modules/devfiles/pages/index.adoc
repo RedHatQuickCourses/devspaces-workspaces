@@ -26,6 +26,6 @@ TIP: It is a good practice to always include a Devfile to create a Workspace and
 
 == References
 
-* https://registry.devfile.io/viewer[Public Community Devfile Registry^]
 * https://devfile.io[Devfile website^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#devfile-introduction[Introduction to devfile in Dev Spaces^]
 
