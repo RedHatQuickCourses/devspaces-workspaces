@@ -1,4 +1,5 @@
 * xref:index.adoc[]
 ** xref:create.adoc[]
 ** xref:registry.adoc[]
+** xref:custom-image.adoc[]
 
