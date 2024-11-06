@@ -20,13 +20,17 @@ NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift D
 
 The overall objectives of this course include:
 
-* Overview of authentication and authorization in Dev Spaces
-* Configure access to Workspaces using GitHub OAuth 2.0
-* Allow users and groups access to specific workspaces
+* Create and manage workspaces using the Dev Spaces dashboard
+* Using the Universal Developer Image (UDI) in workspaces
+* Customizing the Dev Spaces dashboard
+* Configuring Kubedock to build containers in workspaces
+* Configuring IDEs in workspaces
+* Creating Devfiles
+* Creating a custom base container image for workspaces
 
 == Course Prerequisites
 
-* You must complete the first two courses in the learning path covering the basics of Dev Spaces and its administration
+* You must complete the first three courses in the learning path covering the basics of Dev Spaces, its administration, and security
 * Basic knowledge of OpenShift (or Kubernetes) administration
 * Knowledge of building Docker or Podman containers
 * Deploying container images on OpenShift or Kubernetes
