@@ -3,7 +3,7 @@
 
 == Introduction
 
-Welcome to this quick course on the _Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces_.
+Welcome to this quick course on _Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces_.
 This course is the `fourth` in a series of `five` courses about Red Hat OpenShift DevSpaces:
 
 . https://redhatquickcourses.github.io/devspaces-intro[Introduction to Red Hat OpenShift Dev Spaces^]
@@ -12,9 +12,9 @@ This course is the `fourth` in a series of `five` courses about Red Hat OpenShif
 . Creating and Customizing Workspaces in Red Hat OpenShift Dev Spaces (_This course_)
 . Configuring Plugins in Red Hat OpenShift Dev Spaces (_Under Development_)
 
-This course covers how to create, customize and manage `Workspaces` on Dev Spaces.
+This course covers how to create, customize, and manage `Workspaces` on Dev Spaces.
 
-NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift Dev Spaces 3.16*. The labs should mostly work in minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
+NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift Dev Spaces 3.16*. The labs should mostly work on minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
 
 == Course Objectives
 
@@ -34,7 +34,7 @@ The overall objectives of this course include:
 * Basic knowledge of OpenShift (or Kubernetes) administration
 * Knowledge of building Docker or Podman containers
 * Deploying container images on OpenShift or Kubernetes
-* OpenShift or Kubernetes User and Role administration
+* OpenShift or Kubernetes User and Role Administration
 
 == Contributors
 

@@ -1,16 +1,16 @@
 = Building Container Images for Dev Spaces
 :navtitle: Workspace Container Images
 
-While the Red Hat provided Universal Developer Image (UDI) provides a convenient base for use in a workspace in many environments, there are cases where you may need to build your own non-UDI base image. For example:
+While the Red Hat-provided Universal Developer Image (UDI) provides a convenient base for use in a workspace in many environments, there are cases where you may need to build your own non-UDI base image. For example:
 
-* The UDI container image is huge (multi-gigabyte). You may wish to use a smaller image
-* UDI contains compilers, runtimes and libraries for half a dozen programming languages. You may wish to create a lightweight base image for just your application runtime environment
+* The UDI container image is huge (multi-gigabyte). You may wish to use a smaller image.
+* UDI contains compilers, runtimes, and libraries for half a dozen programming languages. You may wish to create a lightweight base image for just your application runtime environment.
 * UDI does not contain support for your application runtime/programming language
-* You deploy very minimal, secure containers in production - and, you wish to retain the same for your developer environment
+* You deploy very minimal, secure containers in production - and, you wish to retain the same for your developer environment.
 
-Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using `FROM` directive in the Dockerfile), and then add support for your application. UDI provides a container image with certain specific configuration that is compliant with Dev Spaces.
+Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using the `FROM` directive in the Dockerfile), and then add support for your application. UDI provides a container image with a certain specific configuration that is compliant with Dev Spaces.
 
-If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the _References_ section for examples. It is highly recommended to use the Red Hat provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image *MUST* be OpenShift compliant).
+If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the _References_ section for examples. It is highly recommended to use the Red Hat-provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image *MUST* be OpenShift compliant).
 
 == Basic Dockerfile and Entrypoint File
 
@@ -71,9 +71,9 @@ exec "$@"
 
 == Lab: Building a Custom Node.js Image for a Workspace
 
-In this hands-on lab, you will build a non-UDI, custom Node.js + MongoDB based container image for an application using a `UBI9` based base image. Instead of using a `ubi-minimal` base image, you will use the full `ubi` base image for convenience.
+In this hands-on lab, you will build a non-UDI, custom Node.js + MongoDB-based container image for an application using a `UBI9`-based base image. Instead of using a `ubi-minimal` base image, you will use the full `ubi` base image for convenience.
 
-This lab assumes that you have `podman` CLI installed and working on your laptop. You will build the container image locally and use the resulting image in a Devfile, and then launch and test a workspace based on this image.
+This lab assumes that you have `Podman` CLI installed and working on your laptop. You will build the container image locally use the resulting image in a Devfile, and then launch and test a workspace based on this image.
 
 . Download and inspect the `Dockerfile` for the base image at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile. You will use a `ubi9` base image and install the `nodejs` package using the `dnf install` command.
 +
@@ -185,7 +185,7 @@ Successfully tagged quay.io/<your_quay_username>/devspaces-ubi9-nodejs:latest_
 
 . Log in to Dev Spaces as `user1`. Copy the GitHub URL of the application in the `Git repo URL` field, and click `Create & Open`.
 
-. Wait for the workspace to start. If you see an error about post start up hooks, it means your `Dockerfile` is incorrect and does not conform to what Dev Spaces expects. Review and fix the issues in the Dockerfile and rebuild your image.
+. Wait for the workspace to start. If you see an error about post start-up hooks, it means your `Dockerfile` is incorrect and does not conform to what Dev Spaces expects. Review and fix the issues in the Dockerfile and rebuild your image.
 
 . Open the `Tasks` menu in VS Code, and run the `devfile: Run the Application` task to start the application. 
 +

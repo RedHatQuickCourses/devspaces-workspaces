@@ -1,10 +1,10 @@
 = Multiple IDEs in Dev Spaces
 
-The default IDE in a new workspace is `Microsoft Visual Studio Code - Open Source`. Alternatively, you can choose `IntelliJ IDEA Community Edition` as an IDE for Java and JVM based applications.
+The default IDE in a new workspace is `Microsoft Visual Studio Code - Open Source`. Alternatively, you can choose `IntelliJ IDEA Community Edition` as an IDE for Java and JVM-based applications.
 
 NOTE: IntelliJ IDEA Community Edition is still in Tech Preview (as of Nov 2024).
 
-There are multiple levels at which you can configure the default IDE for a Workspace. Configuration at lower levels can override the setting at higher levels. Lets say you want to set the IntelliJ IDEA Community Edition as the default IDE for all workspaces, you can do this at three levels:
+There are multiple levels at which you can configure the default IDE for a Workspace. Configuration at lower levels can override the setting at higher levels. Let's say you want to set the IntelliJ IDEA Community Edition as the default IDE for all workspaces, you can do this at three levels:
 
 == Setting Default IDE for all Workspaces
 
@@ -53,7 +53,7 @@ In all cases, your IntelliJ IDEA workspace should look like below:
 
 image::project-idea.png[title=IntelliJ IDEA Community Edition IDE]
 
-TIP: In all the above cases replace the `che-incubator/che-idea/latest` value with `che-incubator/che-code/latest` if you wish to set `Visual Studio Code - Open Source` as the default IDE
+TIP: In all the above cases replace the `che-incubator/che-idea/latest` value with `che-incubator/che-code/latest` if you wish to set `Visual Studio Code - Open Source` as the default IDE.
 
 == References
 

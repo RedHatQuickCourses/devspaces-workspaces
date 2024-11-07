@@ -5,7 +5,7 @@ A devfile is a simple plain text YAML file with a specific structure.
 == Key Components of a Devfile:
 
 Projects:: Lists the repositories that need to be cloned or initialized for the development environment.
-Components:: Defines various containers or plugins (like databases, runtimes) needed in the development workspace.
+Components:: Defines various containers or plugins (like databases, and runtimes) needed in the development workspace.
 Commands:: Specifies tasks or actions such as "build," "run," and "test" that can be executed within the environment.
 Events:: Allows automation of tasks at certain stages, such as before starting or after stopping a container.
 
@@ -114,12 +114,12 @@ volumes: <9>
     size: 1Gi
 ----
 
-<1> Devfile metadata. Name, description, tags and an icon declaration.
+<1> Devfile metadata. Name, description, tags, and an icon declaration.
 <2> Project details and location of Git repository
 <3> Container image to be loaded in the Workspace. In this case, we load the UDI since it contains a Node.js runtime.
-<4> Mount data volumes inside the container. These reference volume names declared in the `volumes` section.
+<4> Mount data volumes inside the container. These reference volume names are declared in the `volumes` section.
 <5> Network endpoints to be exposed in the workspace.
-<6> Declaration of the PostgreSQL database container, along with volume mounts, resource limits and some environment variables used by the container.
+<6> Declaration of the PostgreSQL database container, along with volume mounts, resource limits, and some environment variables used by the container.
 <7> Commands that can be run in this workspace. In this case, to install NPM packages, run Node.js and run tests. These are made available in the IDE as `Tasks` in the `Task` menu.
 <8> Event hooks. These commands are run at startup and shutdown of the workspace.
 <9> Volume name and size declarations. These are mounted in the `volumeMounts` section of the devfile.

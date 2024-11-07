@@ -5,17 +5,17 @@ The Dev Spaces dashboard offers a number of getting started samples allowing dev
 
 image::dashboard-samples.png[title=Dashboard Getting Started Samples]
 
-In this section, you will learn how to provide developers an easy way to launch workspaces by clicking on menu entries in the dashboard rather than manually providing Git repository URLs.
+In this section, you will learn how to provide developers with an easy way to launch workspaces by clicking on menu entries in the dashboard rather than manually providing Git repository URLs.
 
 == Lab: Launching Workspaces from the Dashboard
 
 In this hands-on lab, you will add a new launcher to the samples dashboard for an example Rust programming language project.
 
-. The samples dashboard in Dev Spaces is populated from JSON files. The sample format is available at https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json.
+. The sample dashboard in Dev Spaces is populated from JSON files. The sample format is available at https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json.
 
-. Inspect the sample Rust application at https://github.com/rsriniva/rust-devspaces. This simple example imports a ASCII art library and prints a simple message. Fork this repository to your own GitHub account.
+. Inspect the sample Rust application at https://github.com/rsriniva/rust-devspaces. This simple example imports an ASCII art library and prints a simple message. Fork this repository to your own GitHub account.
 
-. Create a new file named `rust-sample.json` on your local workstation. It consists of a list of JSON objects with fields describing the name of the sample, a brief description, tags, and the URL where the source code and devfile is available for the sample. A base64 encoded SVG image (`icon` field) is used to provide an intuitive image for the sample when it is displayed in the dashboard. Add content as follows:
+. Create a new file named `rust-sample.json` on your local workstation. It consists of a list of JSON objects with fields describing the name of the sample, a brief description, tags, and the URL where the source code and devfile are available for the sample. A base64 encoded SVG image (`icon` field) is used to provide an intuitive image for the sample when it is displayed in the dashboard. Add content as follows:
 +
 [source,json,subs=+quotes]
 ----
@@ -126,7 +126,7 @@ spec:
 ...
 ----
 
-. Wait for the Dev Spaces pods to be re-deployed. Sign out of all active Dev Spaces sessions and log back in as the `user1` user and access the Dev Spaces dashboard. Notice that only the samples you explicitly added by using a custom JSON file appear. The default samples are hidden.
+. Wait for the Dev Spaces pods to be redeployed. Sign out of all active Dev Spaces sessions and log back in as the `user1` user and access the Dev Spaces dashboard. Notice that only the samples you explicitly added by using a custom JSON file appear. The default samples are hidden.
 +
 image::internal-reg-disabled.png[title=Internal Devfile Registry Disabled]
 
