@@ -12,13 +12,13 @@ This chapter will cover launching Workspaces using Git repositories and the Dash
 
 == Creating a Workspace using a Git Repository
 
-You can use a Git repository URL in your browser to launch a new workspace that contains a clone of a Git repository. This way, you can clone a Git repository that is hosted on GitHub, GitLab, Bitbucket or Microsoft Azure DevOps server instances.
+You can use a Git repository URL in your browser to launch a new workspace that contains a clone of a Git repository. This way, you can clone a Git repository that is hosted on GitHub, GitLab, Bitbucket, or Microsoft Azure DevOps server instances.
 
-A number of useful starter examples for various programming language runtimes and frameworks is available at https://github.com/orgs/devspaces-samples/repositories.
+A number of useful starter examples for various programming language runtimes and frameworks are available at https://github.com/orgs/devspaces-samples/repositories.
 
 === Launching Workspaces using Dev Spaces URL
 
-The Dev Spaces dashboard is an intuitive, easy to use web based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.
+The Dev Spaces dashboard is an intuitive, easy-to-use web-based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.
 
 If your Dev Spaces fully qualified domain name (FQDN) is https://openshift_dev_spaces_fqdn, then you can launch a workspace by navigating to:
 
@@ -40,7 +40,7 @@ If you have a pull request in your GitHub repository with an ID of 100, then to 
 
 > https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/pull/100
 
-Consult the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps etc.
+Consult the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps, etc.
 
 == Lab: Create a Workspace using a Git Repository
 
@@ -74,7 +74,7 @@ image::ws-open.png[title=Workspace with source code]
 
 . You can now work with this project just like you would use VSCode installed on your local workstation. You can open a terminal and run commands like `npm install, npm test, npm start etc`. However, the `devfile.yaml` has provided some convenient commands listed under the `commands` section.
 
-. Inspect the `devfile.yaml` in the Workspace. Note the commands under the `commands` attribute. These commands are available as VSCode `Tasks` in the editor menus. Expands the menu to the left of the `EXPLORER` (three vertical bars), and click `Terminal > Run Task`
+. Inspect the `devfile.yaml` in the Workspace. Note the commands under the `commands` attribute. These commands are available as VSCode `Tasks` in the editor menus. Expand the menu to the left of the `EXPLORER` (three vertical bars), and click `Terminal > Run Task`
 +
 image::task-menu.png[title=VSCode Task Menu]
 
@@ -84,14 +84,14 @@ image::all-tasks.png[title=All Tasks]
 
 . Run the `devfile:Install dependencies` task, which runs `npm install` and fetches all the dependencies for the project.
 
-. Next, run the `devfile: Run web application` task. A pop in the right bottom corner informs you that the application is running and listening on port `3000` and that the web application is available for preview. Click `Open in New Tab`, and then click `Open` in the following prompt. You should see `Hello World` printed as output.
+. Next, run the `devfile: Run the web application` task. A pop in the bottom right corner informs you that the application is running and listening on port `3000` and that the web application is available for preview. Click `Open in New Tab`, and then click `Open` in the following prompt. You should see `Hello World` printed as output.
 
 . Press `Ctrl-C` to terminate the application in the terminal window at the bottom. 
 
 == Optional Lab Steps
 
 . Make some changes to the application source code at `app/app.js`. Change the welcome message. Re-run the application and verify that your changes are reflected.
-. If you have configured GitHub authentication as per set up in the second course, your GitHub ID will be used in your workspace to track source changes. Run `git status` to see the changes you made and then run `git add` and `git commit`, followed by `git push` to push your changes back to your forked repository. Your Git workflow must work similar to your local workstation. You can also view changes and work with Git using the Git menu in VSCode in the left sidebar:
+. If you have configured GitHub authentication as per setup in the second course, your GitHub ID will be used in your workspace to track source changes. Run `git status` to see the changes you made and then run `git add` and `git commit`, followed by `git push` to push your changes back to your forked repository. Your Git workflow must work similarly to your local workstation. You can also view changes and work with Git using the Git menu in VSCode in the left sidebar:
 +
 image::git-menu.png[title=Git menu in VSCode]
 . Since the workspace uses the UDI base image, OpenShift client tools should be available. Run `oc whoami` and verify that `user1` is displayed. The OpenShift authentication tokens are automatically injected into the workspace. You can directly deploy the application to OpenShift and manage it from within the workspace.

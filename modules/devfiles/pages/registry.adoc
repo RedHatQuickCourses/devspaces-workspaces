@@ -42,7 +42,7 @@ image::devfile-task.png[title=Devfile Tasks Menu]
 +
 image::all-tasks.png[title=All Tasks in Devfile]
 
-. Run the `devfile:run` task. This will launch a terminal and compile the application code, followed by starting the Spring Boot application. It may take a few minutes to download the dependencies of the application. When it finishes, you should see a prompt in the lower right corner asking you to allow traffic into port `8080`. Click `Yes` , followed by `Open in New Tab` for port `8080` to view the application output.
+. Run the `devfile:run` task. This will launch a terminal and compile the application code, followed by starting the Spring Boot application. It may take a few minutes to download the dependencies of the application. When it finishes, you should see a prompt in the lower right corner asking you to allow traffic into port `8080`. Click `Yes`, followed by `Open in New Tab` for port `8080` to view the application output.
 
 . Press `Ctrl + C` to stop the application and return to the terminal.
 
