@@ -160,15 +160,15 @@
 <h2 id="_creating_a_workspace_using_a_git_repository"><a class="anchor" href="#_creating_a_workspace_using_a_git_repository"></a>Creating a Workspace using a Git Repository</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can use a Git repository URL in your browser to launch a new workspace that contains a clone of a Git repository. This way, you can clone a Git repository that is hosted on GitHub, GitLab, Bitbucket or Microsoft Azure DevOps server instances.</p>
+<p>You can use a Git repository URL in your browser to launch a new workspace that contains a clone of a Git repository. This way, you can clone a Git repository that is hosted on GitHub, GitLab, Bitbucket, or Microsoft Azure DevOps server instances.</p>
 </div>
 <div class="paragraph">
-<p>A number of useful starter examples for various programming language runtimes and frameworks is available at <a href="https://github.com/orgs/devspaces-samples/repositories" class="bare">https://github.com/orgs/devspaces-samples/repositories</a>.</p>
+<p>A number of useful starter examples for various programming language runtimes and frameworks are available at <a href="https://github.com/orgs/devspaces-samples/repositories" class="bare">https://github.com/orgs/devspaces-samples/repositories</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="_launching_workspaces_using_dev_spaces_url"><a class="anchor" href="#_launching_workspaces_using_dev_spaces_url"></a>Launching Workspaces using Dev Spaces URL</h3>
 <div class="paragraph">
-<p>The Dev Spaces dashboard is an intuitive, easy to use web based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.</p>
+<p>The Dev Spaces dashboard is an intuitive, easy-to-use web-based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.</p>
 </div>
 <div class="paragraph">
 <p>If your Dev Spaces fully qualified domain name (FQDN) is <a href="https://openshift_dev_spaces_fqdn" class="bare">https://openshift_dev_spaces_fqdn</a>, then you can launch a workspace by navigating to:</p>
@@ -217,7 +217,7 @@
 </blockquote>
 </div>
 <div class="paragraph">
-<p>Consult the product documentation at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url" class="bare">https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url</a> for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps etc.</p>
+<p>Consult the product documentation at <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url" class="bare">https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url</a> for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps, etc.</p>
 </div>
 </div>
 </div>
@@ -290,7 +290,7 @@ You can also import a Git repository without a <code>devfile.yaml</code>. In suc
 <p>You can now work with this project just like you would use VSCode installed on your local workstation. You can open a terminal and run commands like <code>npm install, npm test, npm start etc</code>. However, the <code>devfile.yaml</code> has provided some convenient commands listed under the <code>commands</code> section.</p>
 </li>
 <li>
-<p>Inspect the <code>devfile.yaml</code> in the Workspace. Note the commands under the <code>commands</code> attribute. These commands are available as VSCode <code>Tasks</code> in the editor menus. Expands the menu to the left of the <code>EXPLORER</code> (three vertical bars), and click <code>Terminal &gt; Run Task</code></p>
+<p>Inspect the <code>devfile.yaml</code> in the Workspace. Note the commands under the <code>commands</code> attribute. These commands are available as VSCode <code>Tasks</code> in the editor menus. Expand the menu to the left of the <code>EXPLORER</code> (three vertical bars), and click <code>Terminal &gt; Run Task</code></p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/task-menu.png" alt="task menu">
@@ -311,7 +311,7 @@ You can also import a Git repository without a <code>devfile.yaml</code>. In suc
 <p>Run the <code>devfile:Install dependencies</code> task, which runs <code>npm install</code> and fetches all the dependencies for the project.</p>
 </li>
 <li>
-<p>Next, run the <code>devfile: Run web application</code> task. A pop in the right bottom corner informs you that the application is running and listening on port <code>3000</code> and that the web application is available for preview. Click <code>Open in New Tab</code>, and then click <code>Open</code> in the following prompt. You should see <code>Hello World</code> printed as output.</p>
+<p>Next, run the <code>devfile: Run the web application</code> task. A pop in the bottom right corner informs you that the application is running and listening on port <code>3000</code> and that the web application is available for preview. Click <code>Open in New Tab</code>, and then click <code>Open</code> in the following prompt. You should see <code>Hello World</code> printed as output.</p>
 </li>
 <li>
 <p>Press <code>Ctrl-C</code> to terminate the application in the terminal window at the bottom.</p>
@@ -330,7 +330,7 @@ You can also import a Git repository without a <code>devfile.yaml</code>. In suc
 <p>Make some changes to the application source code at <code>app/app.js</code>. Change the welcome message. Re-run the application and verify that your changes are reflected.</p>
 </li>
 <li>
-<p>If you have configured GitHub authentication as per set up in the second course, your GitHub ID will be used in your workspace to track source changes. Run <code>git status</code> to see the changes you made and then run <code>git add</code> and <code>git commit</code>, followed by <code>git push</code> to push your changes back to your forked repository. Your Git workflow must work similar to your local workstation. You can also view changes and work with Git using the Git menu in VSCode in the left sidebar:</p>
+<p>If you have configured GitHub authentication as per setup in the second course, your GitHub ID will be used in your workspace to track source changes. Run <code>git status</code> to see the changes you made and then run <code>git add</code> and <code>git commit</code>, followed by <code>git push</code> to push your changes back to your forked repository. Your Git workflow must work similarly to your local workstation. You can also view changes and work with Git using the Git menu in VSCode in the left sidebar:</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/git-menu.png" alt="git menu">

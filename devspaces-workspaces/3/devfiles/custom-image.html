@@ -132,29 +132,29 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>While the Red Hat provided Universal Developer Image (UDI) provides a convenient base for use in a workspace in many environments, there are cases where you may need to build your own non-UDI base image. For example:</p>
+<p>While the Red Hat-provided Universal Developer Image (UDI) provides a convenient base for use in a workspace in many environments, there are cases where you may need to build your own non-UDI base image. For example:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The UDI container image is huge (multi-gigabyte). You may wish to use a smaller image</p>
+<p>The UDI container image is huge (multi-gigabyte). You may wish to use a smaller image.</p>
 </li>
 <li>
-<p>UDI contains compilers, runtimes and libraries for half a dozen programming languages. You may wish to create a lightweight base image for just your application runtime environment</p>
+<p>UDI contains compilers, runtimes, and libraries for half a dozen programming languages. You may wish to create a lightweight base image for just your application runtime environment.</p>
 </li>
 <li>
 <p>UDI does not contain support for your application runtime/programming language</p>
 </li>
 <li>
-<p>You deploy very minimal, secure containers in production - and, you wish to retain the same for your developer environment</p>
+<p>You deploy very minimal, secure containers in production - and, you wish to retain the same for your developer environment.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using <code>FROM</code> directive in the Dockerfile), and then add support for your application. UDI provides a container image with certain specific configuration that is compliant with Dev Spaces.</p>
+<p>Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using the <code>FROM</code> directive in the Dockerfile), and then add support for your application. UDI provides a container image with a certain specific configuration that is compliant with Dev Spaces.</p>
 </div>
 <div class="paragraph">
-<p>If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the <em>References</em> section for examples. It is highly recommended to use the Red Hat provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image <strong>MUST</strong> be OpenShift compliant).</p>
+<p>If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the <em>References</em> section for examples. It is highly recommended to use the Red Hat-provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image <strong>MUST</strong> be OpenShift compliant).</p>
 </div>
 </div>
 </div>
@@ -233,10 +233,10 @@ exec "$@"</code></pre>
 <h2 id="_lab_building_a_custom_node_js_image_for_a_workspace"><a class="anchor" href="#_lab_building_a_custom_node_js_image_for_a_workspace"></a>Lab: Building a Custom Node.js Image for a Workspace</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>In this hands-on lab, you will build a non-UDI, custom Node.js + MongoDB based container image for an application using a <code>UBI9</code> based base image. Instead of using a <code>ubi-minimal</code> base image, you will use the full <code>ubi</code> base image for convenience.</p>
+<p>In this hands-on lab, you will build a non-UDI, custom Node.js + MongoDB-based container image for an application using a <code>UBI9</code>-based base image. Instead of using a <code>ubi-minimal</code> base image, you will use the full <code>ubi</code> base image for convenience.</p>
 </div>
 <div class="paragraph">
-<p>This lab assumes that you have <code>podman</code> CLI installed and working on your laptop. You will build the container image locally and use the resulting image in a Devfile, and then launch and test a workspace based on this image.</p>
+<p>This lab assumes that you have <code>Podman</code> CLI installed and working on your laptop. You will build the container image locally use the resulting image in a Devfile, and then launch and test a workspace based on this image.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -357,7 +357,7 @@ Successfully tagged quay.io/&lt;your_quay_username&gt;/devspaces-ubi9-nodejs:lat
 <p>Log in to Dev Spaces as <code>user1</code>. Copy the GitHub URL of the application in the <code>Git repo URL</code> field, and click <code>Create &amp; Open</code>.</p>
 </li>
 <li>
-<p>Wait for the workspace to start. If you see an error about post start up hooks, it means your <code>Dockerfile</code> is incorrect and does not conform to what Dev Spaces expects. Review and fix the issues in the Dockerfile and rebuild your image.</p>
+<p>Wait for the workspace to start. If you see an error about post start-up hooks, it means your <code>Dockerfile</code> is incorrect and does not conform to what Dev Spaces expects. Review and fix the issues in the Dockerfile and rebuild your image.</p>
 </li>
 <li>
 <p>Open the <code>Tasks</code> menu in VS Code, and run the <code>devfile: Run the Application</code> task to start the application.</p>

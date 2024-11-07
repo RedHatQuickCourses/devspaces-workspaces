@@ -142,7 +142,7 @@
 <div class="title">Figure 1. Dashboard Getting Started Samples</div>
 </div>
 <div class="paragraph">
-<p>In this section, you will learn how to provide developers an easy way to launch workspaces by clicking on menu entries in the dashboard rather than manually providing Git repository URLs.</p>
+<p>In this section, you will learn how to provide developers with an easy way to launch workspaces by clicking on menu entries in the dashboard rather than manually providing Git repository URLs.</p>
 </div>
 </div>
 </div>
@@ -155,13 +155,13 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The samples dashboard in Dev Spaces is populated from JSON files. The sample format is available at <a href="https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json" class="bare">https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json</a>.</p>
+<p>The sample dashboard in Dev Spaces is populated from JSON files. The sample format is available at <a href="https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json" class="bare">https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json</a>.</p>
 </li>
 <li>
-<p>Inspect the sample Rust application at <a href="https://github.com/rsriniva/rust-devspaces" class="bare">https://github.com/rsriniva/rust-devspaces</a>. This simple example imports a ASCII art library and prints a simple message. Fork this repository to your own GitHub account.</p>
+<p>Inspect the sample Rust application at <a href="https://github.com/rsriniva/rust-devspaces" class="bare">https://github.com/rsriniva/rust-devspaces</a>. This simple example imports an ASCII art library and prints a simple message. Fork this repository to your own GitHub account.</p>
 </li>
 <li>
-<p>Create a new file named <code>rust-sample.json</code> on your local workstation. It consists of a list of JSON objects with fields describing the name of the sample, a brief description, tags, and the URL where the source code and devfile is available for the sample. A base64 encoded SVG image (<code>icon</code> field) is used to provide an intuitive image for the sample when it is displayed in the dashboard. Add content as follows:</p>
+<p>Create a new file named <code>rust-sample.json</code> on your local workstation. It consists of a list of JSON objects with fields describing the name of the sample, a brief description, tags, and the URL where the source code and devfile are available for the sample. A base64 encoded SVG image (<code>icon</code> field) is used to provide an intuitive image for the sample when it is displayed in the dashboard. Add content as follows:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
@@ -293,7 +293,7 @@ spec:
 </div>
 </li>
 <li>
-<p>Wait for the Dev Spaces pods to be re-deployed. Sign out of all active Dev Spaces sessions and log back in as the <code>user1</code> user and access the Dev Spaces dashboard. Notice that only the samples you explicitly added by using a custom JSON file appear. The default samples are hidden.</p>
+<p>Wait for the Dev Spaces pods to be redeployed. Sign out of all active Dev Spaces sessions and log back in as the <code>user1</code> user and access the Dev Spaces dashboard. Notice that only the samples you explicitly added by using a custom JSON file appear. The default samples are hidden.</p>
 <div class="imageblock">
 <div class="content">
 <img src="_images/internal-reg-disabled.png" alt="internal reg disabled">
