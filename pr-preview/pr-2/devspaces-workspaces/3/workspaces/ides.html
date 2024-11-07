@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Multiple IDEs in Dev Spaces :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="prev" href="kubedock.html">
+    <link rel="next" href="../devfiles/index.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="ides.html">Multiple IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfiles/index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/registry.html">Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/custom-image.html">Workspace Container Images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Workspaces</a></li>
+    <li><a href="ides.html">Multiple IDEs in Dev Spaces</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Multiple IDEs in Dev Spaces</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>The default IDE in a new workspace is <code>Microsoft Visual Studio Code - Open Source</code>. Alternatively, you can choose <code>IntelliJ IDEA Community Edition</code> as an IDE for Java and JVM-based applications.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+IntelliJ IDEA Community Edition is still in Tech Preview (as of Nov 2024).
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>There are multiple levels at which you can configure the default IDE for a Workspace. Configuration at lower levels can override the setting at higher levels. Let&#8217;s say you want to set the IntelliJ IDEA Community Edition as the default IDE for all workspaces, you can do this at three levels:</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_default_ide_for_all_workspaces"><a class="anchor" href="#_setting_default_ide_for_all_workspaces"></a>Setting Default IDE for all Workspaces</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Edit the <code>devspaces</code> CheCluster CR YAML and add the following to the <code>.spec.devEnvironments.defaultEditor</code> section:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">spec:
+  components:
+...
+  devEnvironments:
+...
+    defaultEditor: che-incubator/che-idea/latest
+...</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also use the <code>oc patch</code> command as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ oc patch checluster/devspaces \
+  -n openshift-devspaces \
+  --type='merge' \
+  -p '{"spec":{"devEnvironments":{"defaultEditor": "che-incubator/che-idea/latest"}}}'
+<em>checluster.org.eclipse.che/devspaces patched</em></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_ide_in_git_repository"><a class="anchor" href="#_setting_ide_in_git_repository"></a>Setting IDE in Git Repository</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can set a default IDE for a workspace in your Git repositories by creating a <code>.che/che-editor.yaml</code> file at the root of the repository and add the following content to the file:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">id: che-incubator/che-idea/latest</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, when you launch a workspace from Dev Spaces, this file is parsed and the editor is set based on the <code>id</code> value field.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setting_ide_in_url_parameter"><a class="anchor" href="#_setting_ide_in_url_parameter"></a>Setting IDE in URL Parameter</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can also launch a workspace with a specific editor by passing the editor ID value as a URL parameter. For example, let&#8217;s say you want to open the GitHub repository <a href="https://github.com/agiertli/quarkus-workshops" class="bare">https://github.com/agiertli/quarkus-workshops</a> in Dev Spaces using the IntelliJ IDEA Community Edition IDE, pass a <code>che-editor</code> URL parameter and the editor ID as the value as follows:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://devspaces.apps.cluster.example.com/dashboard/#/https://github.com/agiertli/quarkus-workshops?che-editor=che-incubator/che-idea/latest" class="bare">https://devspaces.apps.cluster.example.com/dashboard/#/https://github.com/agiertli/quarkus-workshops?che-editor=che-incubator/che-idea/latest</a></p>
+</div>
+<div class="paragraph">
+<p>In all cases, your IntelliJ IDEA workspace should look like below:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/project-idea.png" alt="project idea">
+</div>
+<div class="title">Figure 1. IntelliJ IDEA Community Edition IDE</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+In all the above cases replace the <code>che-incubator/che-idea/latest</code> value with <code>che-incubator/che-code/latest</code> if you wish to set <code>Visual Studio Code - Open Source</code> as the default IDE.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#ides-in-workspaces-_supported_ides" target="_blank" rel="noopener">IDE Support in Dev Spaces</a></p>
+</li>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#url-parameter-for-the-ide" target="_blank" rel="noopener">URL parameter for the IDE</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_setting_and_overriding_default_ide"><a class="anchor" href="#_lab_setting_and_overriding_default_ide"></a>Lab: Setting and Overriding Default IDE</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Set the default IDE at the CheCluster CR level, or in a Git repository for an application.</p>
+</li>
+<li>
+<p>Launch the workspace and verify that your default editor is displayed.</p>
+</li>
+<li>
+<p>Override the default editor by passing an alternate editor ID in the URL parameter when you launch the workspace for the same application as above and verify that the editor you passed in the URL parameter is displayed.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references_2"><a class="anchor" href="#_references_2"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#ides-in-workspaces-_supported_ides" target="_blank" rel="noopener">IDE Support in Dev Spaces</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="kubedock.html">Kubedock</a></span>
+  <span class="next"><a href="../devfiles/index.html">Devfiles</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

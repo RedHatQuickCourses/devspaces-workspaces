@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating a Devfile :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="prev" href="index.html">
+    <link rel="next" href="registry.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../workspaces/index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/ides.html">Multiple IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="registry.html">Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-image.html">Workspace Container Images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Devfiles</a></li>
+    <li><a href="create.html">Creating a Devfile</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating a Devfile</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A devfile is a simple plain text YAML file with a specific structure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_key_components_of_a_devfile"><a class="anchor" href="#_key_components_of_a_devfile"></a>Key Components of a Devfile:</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Projects</dt>
+<dd>
+<p>Lists the repositories that need to be cloned or initialized for the development environment.</p>
+</dd>
+<dt class="hdlist1">Components</dt>
+<dd>
+<p>Defines various containers or plugins (like databases, and runtimes) needed in the development workspace.</p>
+</dd>
+<dt class="hdlist1">Commands</dt>
+<dd>
+<p>Specifies tasks or actions such as "build," "run," and "test" that can be executed within the environment.</p>
+</dd>
+<dt class="hdlist1">Events</dt>
+<dd>
+<p>Allows automation of tasks at certain stages, such as before starting or after stopping a container.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>An example Devfile, defining a development environment for a simple Node.js application that communicates with a PostgreSQL database is provided below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-yaml hljs" data-lang="yaml">schemaVersion: 2.2.0
+
+metadata: <i class="conum" data-value="1"></i><b>(1)</b>
+  name: nodejs-sample-app
+  version: 1.0.0
+  description: Devfile for a sample Node.js application
+  icon: https://raw.githubusercontent.com/devfile-samples/devfile-stack-icons/main/node-js.svg
+  tags:
+    - Node.js
+    - Express
+    - ubi8
+
+projects: <i class="conum" data-value="2"></i><b>(2)</b>
+  - name: nodejs-app
+    source:
+      type: git
+      location: "https://github.com/some-repository/nodejs-app.git"
+      branch: main
+
+components:
+  - name: nodejs
+    container:
+      image: quay.io/devfile/universal-developer-image:ubi8-latest <i class="conum" data-value="3"></i><b>(3)</b>
+      memoryLimit: 512Mi
+      mountSources: true
+      command: ["npm"]
+      args: ["start"]
+      volumeMounts: <i class="conum" data-value="4"></i><b>(4)</b>
+        - name: node-modules
+          path: "/projects/node_modules"
+      endpoints: <i class="conum" data-value="5"></i><b>(5)</b>
+        - name: "app"
+          targetPort: 3000
+          exposure: public
+          protocol: http
+
+  - name: postgres-db
+    container:
+      image: "postgres:13" <i class="conum" data-value="6"></i><b>(6)</b>
+      memoryLimit: 512Mi
+      endpoints:
+        - name: postgres
+          exposure: internal
+          targetPort: 5432
+          attributes:
+            discoverable: 'true'
+      env:
+        - name: POSTGRES_USER
+          value: user
+        - name: POSTGRES_PASSWORD
+          value: password
+        - name: POSTGRES_DB
+          value: devdb
+      volumeMounts:
+        - name: db-data
+          path: "/var/lib/postgresql/data"
+
+commands: <i class="conum" data-value="7"></i><b>(7)</b>
+  - id: install
+    exec:
+      component: nodejs
+      commandLine: "npm install"
+      workingDir: /projects/nodejs-app
+      group:
+        kind: build
+        isDefault: true
+
+  - id: run
+    exec:
+      component: nodejs
+      commandLine: "npm run dev"
+      workingDir: /projects/nodejs-app
+      group:
+        kind: run
+        isDefault: true
+
+  - id: test
+    exec:
+      component: nodejs
+      commandLine: "npm test"
+      workingDir: /projects/nodejs-app
+      group:
+        kind: test
+        isDefault: true
+
+events: <i class="conum" data-value="8"></i><b>(8)</b>
+  preStart:
+    - install
+  postStop:
+    - id: cleanup
+      exec:
+        component: nodejs
+        commandLine: "npm run clean"
+
+volumes: <i class="conum" data-value="9"></i><b>(9)</b>
+  - name: node-modules
+    size: 1Gi
+  - name: db-data
+    size: 1Gi</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>Devfile metadata. Name, description, tags, and an icon declaration.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>Project details and location of Git repository</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>Container image to be loaded in the Workspace. In this case, we load the UDI since it contains a Node.js runtime.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>Mount data volumes inside the container. These reference volume names are declared in the <code>volumes</code> section.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td>Network endpoints to be exposed in the workspace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td>Declaration of the PostgreSQL database container, along with volume mounts, resource limits, and some environment variables used by the container.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td>Commands that can be run in this workspace. In this case, to install NPM packages, run Node.js and run tests. These are made available in the IDE as <code>Tasks</code> in the <code>Task</code> menu.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="8"></i><b>8</b></td>
+<td>Event hooks. These commands are run at startup and shutdown of the workspace.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="9"></i><b>9</b></td>
+<td>Volume name and size declarations. These are mounted in the <code>volumeMounts</code> section of the devfile.</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Red Hat OpenShift Dev Spaces is expected to work with most of the popular images defined in the components section of a Devfile. For production purposes, it is recommended to use one of the Universal Base Images (UBI) from Red Hat as a base image for defining the developer environment.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+Some images cannot be used as is for defining a developer environment since <code>Visual Studio Code - Open Source</code> cannot be started with missing <code>openssl</code> and <code>libbrotli</code> packages. Missing libraries should be explicitly installed inn the <code>Dockerfile</code> for the container, that is using <code>RUN yum install compat-openssl11 libbrotli</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.devfile.io/viewer" target="_blank" rel="noopener">Public Community Devfile Registry</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="index.html">Devfiles</a></span>
+  <span class="next"><a href="registry.html">Devfile Registry</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

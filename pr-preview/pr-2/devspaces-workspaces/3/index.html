@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="next" href="workspaces/index.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../_/css/site.css">
+    <script>var uiRootPath = '../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item is-current-page" data-depth="1">
+    <a class="nav-link" href="index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="workspaces/index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces/create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces/udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces/dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces/custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces/kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="workspaces/ides.html">Multiple IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="devfiles/index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles/create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles/registry.html">Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="devfiles/custom-image.html">Workspace Container Images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="index.html" class="home-link is-current"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Home</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</h1>
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Welcome to this quick course on <em>Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</em>.
+This course is the <code>fourth</code> in a series of <code>five</code> courses about Red Hat OpenShift DevSpaces:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="https://redhatquickcourses.github.io/devspaces-intro" target="_blank" rel="noopener">Introduction to Red Hat OpenShift Dev Spaces</a></p>
+</li>
+<li>
+<p><a href="https://redhatquickcourses.github.io/devspaces-admin" target="_blank" rel="noopener">Red Hat OpenShift Dev Spaces Administration</a></p>
+</li>
+<li>
+<p><a href="https://redhatquickcourses.github.io/devspaces-security" target="_blank" rel="noopener">Securing Access to Red Hat OpenShift Dev Spaces</a></p>
+</li>
+<li>
+<p>Creating and Customizing Workspaces in Red Hat OpenShift Dev Spaces (<em>This course</em>)</p>
+</li>
+<li>
+<p>Configuring Plugins in Red Hat OpenShift Dev Spaces (<em>Under Development</em>)</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This course covers how to create, customize, and manage <code>Workspaces</code> on Dev Spaces.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The hands-on labs for this course have been tested on <strong>Red Hat OpenShift Dev Spaces 3.16</strong>. The labs should mostly work on minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_course_objectives"><a class="anchor" href="#_course_objectives"></a>Course Objectives</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The overall objectives of this course include:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Create and manage workspaces using the Dev Spaces dashboard</p>
+</li>
+<li>
+<p>Using the Universal Developer Image (UDI) in workspaces</p>
+</li>
+<li>
+<p>Customizing the Dev Spaces dashboard</p>
+</li>
+<li>
+<p>Configuring Kubedock to build containers in workspaces</p>
+</li>
+<li>
+<p>Configuring IDEs in workspaces</p>
+</li>
+<li>
+<p>Creating Devfiles</p>
+</li>
+<li>
+<p>Creating a custom base container image for workspaces</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_course_prerequisites"><a class="anchor" href="#_course_prerequisites"></a>Course Prerequisites</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>You must complete the first three courses in the learning path covering the basics of Dev Spaces, its administration, and security</p>
+</li>
+<li>
+<p>Basic knowledge of OpenShift (or Kubernetes) administration</p>
+</li>
+<li>
+<p>Knowledge of building Docker or Podman containers</p>
+</li>
+<li>
+<p>Deploying container images on OpenShift or Kubernetes</p>
+</li>
+<li>
+<p>OpenShift or Kubernetes User and Role Administration</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_contributors"><a class="anchor" href="#_contributors"></a>Contributors</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The PTL team acknowledges the valuable contributions of the following Red Hat associates:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Ravi Srinivasan</p>
+</li>
+<li>
+<p>Rutuja Deshmukh</p>
+</li>
+<li>
+<p>Anna Swicegood</p>
+</li>
+<li>
+<p>Caitlyn Rymarchyk</p>
+</li>
+<li>
+<p>Anton Giertli</p>
+</li>
+<li>
+<p>Anatolii Bazko</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_classroom_environment"><a class="anchor" href="#_classroom_environment"></a>Classroom Environment</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You must continue to use the classroom you provisioned for Dev Spaces in the second course (<em>Red Hat OpenShift Dev Spaces Administration</em>) of the learning path. You must have a valid installation of Dev Spaces using any of the approaches taught in the second course.</p>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="next"><a href="workspaces/index.html">Workspaces</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../_/js/site.js" data-ui-root-path="../../_"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

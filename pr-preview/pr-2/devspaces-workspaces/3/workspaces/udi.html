@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Universal Developer Image (UDI) :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="prev" href="create.html">
+    <link rel="next" href="dashboard.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="ides.html">Multiple IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../devfiles/index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/registry.html">Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../devfiles/custom-image.html">Workspace Container Images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Workspaces</a></li>
+    <li><a href="udi.html">Universal Developer Image</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Universal Developer Image (UDI)</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Red Hat&#8217;s Universal Developer Image (UDI)</em> is a base container image designed to provide a comprehensive and consistent development environment for developers using OpenShift Dev Spaces. The UDI aims to offer a standardized, pre-configured environment for developers across various projects and languages. It is designed to reduce setup time and ensure consistency across different development environments.</p>
+</div>
+<div class="paragraph">
+<p>By default, newly created workspaces that do not specify a devfile will use the Universal Developer Image (UDI). The UDI contains common development tools and dependencies, plus a large number of programming language compilers and runtimes commonly used by modern cloud-native application developers.</p>
+</div>
+<div class="paragraph">
+<p>In addition, tools like <code>Podman</code> and <code>Buildah</code> are included in the UDI, allowing developers to build and push container images from their workspace.</p>
+</div>
+<div class="paragraph">
+<p>Red Hat maintains and updates the UDI to include the latest stable versions of tools. The <code>Dockerfile</code> used to build the UDI is available at <a href="https://github.com/devfile/developer-images" class="bare">https://github.com/devfile/developer-images</a>.</p>
+</div>
+<div class="paragraph">
+<p>The latest updated UDI container images are available from the Quay.io container registry at <a href="https://quay.io/repository/devfile/universal-developer-image?tab=tags&amp;tag=latest" class="bare">https://quay.io/repository/devfile/universal-developer-image?tab=tags&amp;tag=latest</a>.</p>
+</div>
+<div class="paragraph">
+<p>The UDI includes support for popular languages like Java, Node.js, Python, and many more. A full list of available runtimes is at <a href="https://github.com/devfile/developer-images#included-development-tools-1" class="bare">https://github.com/devfile/developer-images#included-development-tools-1</a>.</p>
+</div>
+<div class="paragraph">
+<p>The UDI also includes a lot of useful developer tools like <code>git</code>, <code>curl</code>, <code>jq</code>, and others. The full list of included tools is at <a href="https://github.com/devfile/developer-images#included-development-tools" class="bare">https://github.com/devfile/developer-images#included-development-tools</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_using_the_udi_for_a_python_web_application"><a class="anchor" href="#_lab_using_the_udi_for_a_python_web_application"></a>Lab: Using the UDI for a Python Web Application</h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Fork the Git repository at <a href="https://github.com/rsriniva/simple-flask-app" class="bare">https://github.com/rsriniva/simple-flask-app</a> to your own GitHub account. This repository contains the source code for a simple Python web application based on the <code>Flask</code> framework. It does <strong>NOT</strong> contain a <code>Devfile</code>.</p>
+</li>
+<li>
+<p>Log in to Dev Spaces as <code>user1</code> (or any valid user).</p>
+</li>
+<li>
+<p>Create and open a new workspace in Dev Spaces by providing <code><a href="https://github.com/rsriniva/simple-flask-app" class="bare">https://github.com/rsriniva/simple-flask-app</a></code> in the <code>Git Repo URL</code> field in the Dev Spaces dashboard.</p>
+</li>
+<li>
+<p>The workspaces are opened using the default UDI base container image, which contains the Python 3 runtime and developer tools (<code>pip</code>, <code>pip3</code>, etc) by default.</p>
+</li>
+<li>
+<p>Open a new terminal in the workspace and run <code>pip install flask</code> to install the dependencies for the application.</p>
+</li>
+<li>
+<p>Run <code>python main.py</code> to start the application. You will be prompted in the bottom right corner to allow port <code>8080</code> to be open. Click <code>yes</code>.</p>
+</li>
+<li>
+<p>You will now be prompted to open the web application. Click <code>Open in New Tab</code>, and click <code>Open</code> once again in the pop-up</p>
+</li>
+<li>
+<p>Verify that you can see the output from the application. It should print <code>Hello World!</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://catalog.redhat.com/software/containers/devspaces/udi-rhel8/622bce914a14c05796114be4" target="_blank" rel="noopener">Red Hat OpenShift Dev Spaces - Universal Developer Image</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="create.html">Creating Workspaces</a></span>
+  <span class="next"><a href="dashboard.html">Dev Spaces Dashboard</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
