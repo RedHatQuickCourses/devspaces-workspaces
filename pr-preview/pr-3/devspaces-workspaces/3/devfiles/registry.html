@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Devfile Registry :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="prev" href="create.html">
+    <link rel="next" href="custom-image.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../workspaces/index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/ides.html">Multiple IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="registry.html">Devfile Registry</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="custom-image.html">Workspace Container Images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Devfiles</a></li>
+    <li><a href="registry.html">Devfile Registry</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Devfile Registry</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>A <code>Devfile Registry</code> is a central repository or catalog that stores a collection of predefined <code>Devfiles</code>. These devfiles can be used by developers to quickly create and configure consistent development environments for various applications, frameworks, and programming languages.</p>
+</div>
+<div class="paragraph">
+<p>The registry is often hosted as a service, which can be publicly accessible or private (self-hosted). The registry server provides access to the available devfiles and facilitates their discovery and retrieval.</p>
+</div>
+<div class="paragraph">
+<p>An example of a publicly accessible and widely used devfile registry is <a href="https://registry.devfile.io" class="bare" target="_blank" rel="noopener">https://registry.devfile.io</a>. It offers a variety of predefined devfiles for languages like Python, Java, Node.js, Quarkus, and more.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/community-registry.png" alt="community registry">
+</div>
+<div class="title">Figure 1. Devfile Community Registry</div>
+</div>
+<div class="paragraph">
+<p>A number of sample Devfiles for Dev Spaces are available at <a href="https://github.com/devspaces-samples" class="bare" target="_blank" rel="noopener">https://github.com/devspaces-samples</a>. You can explore and customize these samples to your needs.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Dev Spaces deploys its own internal registry that contains the Devfiles for the "getting started sample" applications. Adding your own devfiles to the internal registry is covered in the <a href="../workspaces/custom.html" class="xref page">Customizing Samples in the Dashboard^</a> section.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You can create and run your own customized devfile registry outside the cluster. The process to do so is outside the scope of this course. Consult the README file at <a href="https://github.com/devfile/registry" class="bare" target="_blank" rel="noopener">https://github.com/devfile/registry</a> for details.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_creating_a_workspace_from_the_community_devfile_registry"><a class="anchor" href="#_lab_creating_a_workspace_from_the_community_devfile_registry"></a>Lab: Creating a Workspace from the Community Devfile Registry</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this hands-on lab, you will browse the public community Devfile catalog and create a workspace from it.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Using a browser, navigate to <a href="https://registry.devfile.io" class="bare" target="_blank" rel="noopener">https://registry.devfile.io</a>. Search for a <code>Spring Boot</code> application. For example, one of the results is <code>Spring Boot using Java</code> at <a href="https://registry.devfile.io/viewer/devfiles/community/java-springboot" class="bare" target="_blank" rel="noopener">https://registry.devfile.io/viewer/devfiles/community/java-springboot</a>. Open this item.</p>
+</li>
+<li>
+<p>Click on <code>Raw devfile</code> in the right sidebar (below <code>Resources</code>). Copy the resulting URL. It defines a devfile for a basic Spring Boot application.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/raw-devfile-link.png" alt="raw devfile link">
+</div>
+<div class="title">Figure 2. Raw Devfile Link for a Spring Boot Application</div>
+</div>
+</li>
+<li>
+<p>Log in to the Dev Spaces dashboard as <code>user1</code>.</p>
+</li>
+<li>
+<p>Paste the URL for the Spring Boot devfile URL in the <code>Git repo URL</code> field and click <code>Create &amp; Open</code> to launch a new workspace.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sb-url.png" alt="sb url">
+</div>
+<div class="title">Figure 3. Launch a Spring Boot Application</div>
+</div>
+</li>
+<li>
+<p>Wait for a few minutes while the workspace is created.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/sb-ws-start.png" alt="sb ws start">
+</div>
+<div class="title">Figure 4. Workspace Starting</div>
+</div>
+</li>
+<li>
+<p>Once the workspace loads, you should see the source code the application in the left sidebar. Open the task menu by clicking <code>Terminal &gt; Run Task&#8230;&#8203;</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/devfile-task.png" alt="devfile task">
+</div>
+<div class="title">Figure 5. Devfile Tasks Menu</div>
+</div>
+</li>
+<li>
+<p>Click <code>All Tasks</code> in the dialog to view all the tasks defined in the devfile.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/all-tasks.png" alt="all tasks">
+</div>
+<div class="title">Figure 6. All Tasks in Devfile</div>
+</div>
+</li>
+<li>
+<p>Run the <code>devfile:run</code> task. This will launch a terminal and compile the application code, followed by starting the Spring Boot application. It may take a few minutes to download the dependencies of the application. When it finishes, you should see a prompt in the lower right corner asking you to allow traffic into port <code>8080</code>. Click <code>Yes</code>, followed by <code>Open in New Tab</code> for port <code>8080</code> to view the application output.</p>
+</li>
+<li>
+<p>Press <code>Ctrl + C</code> to stop the application and return to the terminal.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://registry.devfile.io/viewer" target="_blank" rel="noopener">Public Community Devfile Registry</a></p>
+</li>
+<li>
+<p><a href="https://github.com/devspaces-samples" target="_blank" rel="noopener">Dev Spaces devfile samples</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="create.html">Creating a Devfile</a></span>
+  <span class="next"><a href="custom-image.html">Workspace Container Images</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>

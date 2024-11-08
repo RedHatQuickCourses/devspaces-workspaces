@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Building Container Images for Dev Spaces :: Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</title>
+    <link rel="prev" href="registry.html">
+    <meta name="generator" content="Antora 3.1.3">
+    <link rel="stylesheet" href="../../../_/css/site.css">
+    <script>var uiRootPath = '../../../_'</script>
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://www.redhat.com" target="_blank"><img src="../../../_/img/redhat-logo.png" height="40px" alt="Red Hat"></a>
+      <a class="navbar-item" style="font-size: 24px; color: white" href="../../..">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="https://github.com/RedHatQuickCourses/devspaces-workspaces/issues" target="_blank">Report Issues</a>
+      </div>
+    </div>
+  </nav>
+</header><div class="body">
+<div class="nav-container" data-component="devspaces-workspaces" data-version="3">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="../workspaces/index.html">Workspaces</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/create.html">Creating Workspaces</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/udi.html">Universal Developer Image</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/dashboard.html">Dev Spaces Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/custom.html">Samples Dashboard</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/kubedock.html">Kubedock</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="../workspaces/ides.html">Multiple IDEs in Dev Spaces</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Devfiles</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="create.html">Creating a Devfile</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="registry.html">Devfile Registry</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="custom-image.html">Workspace Container Images</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</span>
+    <span class="version">3</span>
+  </div>
+  <ul class="components">
+    <li class="component is-current">
+      <a class="title" href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="../index.html">3</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="../index.html">Creating and Customizing Workspaces in Red Hat OpenShift DevSpaces</a></li>
+    <li><a href="index.html">Devfiles</a></li>
+    <li><a href="custom-image.html">Workspace Container Images</a></li>
+  </ul>
+</nav>
+</div>
+  <div class="content">
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+<article class="doc">
+<h1 class="page">Building Container Images for Dev Spaces</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>While the Red Hat-provided Universal Developer Image (UDI) provides a convenient base for use in a workspace in many environments, there are cases where you may need to build your own non-UDI base image. For example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The UDI container image is huge (multi-gigabyte). You may wish to use a smaller image.</p>
+</li>
+<li>
+<p>UDI contains compilers, runtimes, and libraries for half a dozen programming languages. You may wish to create a lightweight base image for just your application runtime environment.</p>
+</li>
+<li>
+<p>UDI does not contain support for your application runtime/programming language</p>
+</li>
+<li>
+<p>You deploy very minimal, secure containers in production - and, you wish to retain the same for your developer environment.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using the <code>FROM</code> directive in the Dockerfile), and then add support for your application. UDI provides a container image with a certain specific configuration that is compliant with Dev Spaces.</p>
+</div>
+<div class="paragraph">
+<p>If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the <em>References</em> section for examples. It is highly recommended to use the Red Hat-provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image <strong>MUST</strong> be OpenShift compliant).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_basic_dockerfile_and_entrypoint_file"><a class="anchor" href="#_basic_dockerfile_and_entrypoint_file"></a>Basic Dockerfile and Entrypoint File</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use the following two files as a base to build your image.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+This Dockerfile uses <code>ubi-minimal</code> as the base. Replace <code>microdnf</code> with <code>dnf</code> command to install packages if you use the full UBI image.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Dockerfile</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-lang="Dockerfile">FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10-1086
+
+ARG USER_HOME_DIR="/home/user"
+ARG WORK_DIR="/projects"
+
+ENV HOME=${USER_HOME_DIR}
+ENV BUILDAH_ISOLATION=chroot
+
+COPY --chown=0:0 entrypoint.sh /
+
+# Note: compat-openssl11 &amp; libbrotli are needed for che-code (Che build of VS Code)
+
+RUN microdnf --disableplugin=subscription-manager install -y openssl compat-openssl11 libbrotli; \
+    microdnf update -y ; \
+    microdnf clean all ; \
+    mkdir -p ${USER_HOME_DIR} ; \
+    mkdir -p ${WORK_DIR} ; \
+    chgrp -R 0 /home ; \
+    chmod +x /entrypoint.sh ; \
+    chmod -R g=u /etc/passwd /etc/group /home ${WORK_DIR}
+
+WORKDIR ${WORK_DIR}
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "tail", "-f", "/dev/null" ]</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">entrypoint.sh</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+if [ ! -d "${HOME}" ]
+then
+  mkdir -p "${HOME}"
+fi
+
+if ! whoami &amp;&gt; /dev/null
+then
+  if [ -w /etc/passwd ]
+  then
+    echo "${USER_NAME:-user}:x:$(id -u):0:${USER_NAME:-user} user:${HOME}:/bin/bash" &gt;&gt; /etc/passwd
+    echo "${USER_NAME:-user}:x:$(id -u):" &gt;&gt; /etc/group
+  fi
+fi
+
+exec "$@"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_lab_building_a_custom_node_js_image_for_a_workspace"><a class="anchor" href="#_lab_building_a_custom_node_js_image_for_a_workspace"></a>Lab: Building a Custom Node.js Image for a Workspace</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this hands-on lab, you will build a non-UDI, custom Node.js + MongoDB-based container image for an application using a <code>UBI9</code>-based base image. Instead of using a <code>ubi-minimal</code> base image, you will use the full <code>ubi</code> base image for convenience.</p>
+</div>
+<div class="paragraph">
+<p>This lab assumes that you have <code>Podman</code> CLI installed and working on your laptop. You will build the container image locally use the resulting image in a Devfile, and then launch and test a workspace based on this image.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Download and inspect the <code>Dockerfile</code> for the base image at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile</a>. You will use a <code>ubi9</code> base image and install the <code>nodejs</code> package using the <code>dnf install</code> command.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-lang="Dockerfile">FROM <strong>registry.access.redhat.com/ubi9/ubi:9.4-1214.1729773476</strong>
+
+ARG USER_HOME_DIR="/home/user"
+ARG WORK_DIR="/projects"
+
+# Set SHELL to configure the default shell used in web terminals
+# https://github.com/eclipse/che/issues/22524
+ENV SHELL=/usr/bin/bash
+
+# Set HOME. Required for CRI-o to set /etc/passwd correctly and in general for other CLI tools
+ENV HOME=${USER_HOME_DIR}
+ENV BUILDAH_ISOLATION=chroot
+
+COPY --chown=0:0 entrypoint.sh /
+
+RUN dnf --disableplugin=subscription-manager install -y openssl compat-openssl11 libbrotli <strong>nodejs</strong>; \
+    dnf update -y ; \
+    dnf clean all ; \
+    mkdir -p ${USER_HOME_DIR} ; \
+    mkdir -p ${WORK_DIR} ; \
+    chgrp -R 0 /home ; \
+    chmod +x /entrypoint.sh ; \
+    chmod -R g=u /etc/passwd /etc/group /home ${WORK_DIR}
+
+WORKDIR ${WORK_DIR}
+ENTRYPOINT [ "/entrypoint.sh" ]
+CMD [ "tail", "-f", "/dev/null" ]</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Download and inspect the accompanying <code>entrypoint.sh</code> file at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh</a>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+if [ ! -d "${HOME}" ]
+then
+  mkdir -p "${HOME}"
+fi
+
+if ! whoami &amp;&gt; /dev/null
+then
+  if [ -w /etc/passwd ]
+  then
+    echo "${USER_NAME:-user}:x:$(id -u):0:${USER_NAME:-user} user:${HOME}:/bin/bash" &gt;&gt; /etc/passwd
+    echo "${USER_NAME:-user}:x:$(id -u):" &gt;&gt; /etc/group
+  fi
+fi
+
+exec "$@"</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Build the container image using the <code>podman</code> command</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ <strong>podman build --platform linux/amd64 \
+  -t quay.io/&lt;your_quay_username&gt;/devspaces-ubi9-nodejs .</strong>
+<em>STEP 1/11: FROM registry.access.redhat.com/ubi9/ubi:9.4-1214.1729773476
+Trying to pull registry.access.redhat.com/ubi9/ubi:9.4-1214.1729773476...
+...
+STEP 2/11: ARG USER_HOME_DIR="/home/user"
+--&gt; 3f13beb185fe
+STEP 3/11: ARG WORK_DIR="/projects"
+--&gt; c0da750f3117
+STEP 4/11: ENV SHELL=/usr/bin/bash
+--&gt; 1da6d0486920
+STEP 5/11: ENV HOME=${USER_HOME_DIR}
+--&gt; 1b46c2855991
+STEP 6/11: ENV BUILDAH_ISOLATION=chroot
+--&gt; 8402fc79c6bc
+STEP 7/11: COPY --chown=0:0 entrypoint.sh /
+--&gt; 5dc9b92cfb47
+STEP 8/11: RUN dnf --disableplugin=subscription-manager
+install -y openssl compat-openssl11 libbrotli nodejs...
+Dependencies resolved.
+...
+
+Installed:
+  compat-openssl11-1:1.1.1k-4.el9_0.x86_64
+  libbrotli-1.0.9-6.el9.x86_64
+  nodejs-1:16.20.2-8.el9_4.x86_64
+  nodejs-docs-1:16.20.2-8.el9_4.noarch
+  nodejs-full-i18n-1:16.20.2-8.el9_4.x86_64
+  nodejs-libs-1:16.20.2-8.el9_4.x86_64
+  npm-1:8.19.4-1.16.20.2.8.el9_4.x86_64
+
+Complete!
+...
+STEP 9/11: WORKDIR ${WORK_DIR}
+--&gt; 16f122c900fc
+STEP 10/11: ENTRYPOINT [ "/entrypoint.sh" ]
+--&gt; 2424051f7dfe
+STEP 11/11: CMD [ "tail", "-f", "/dev/null" ]
+COMMIT quay.io/rsriniva/devspaces-ubi9-nodejs
+--&gt; 9813c7851f9a
+Successfully tagged quay.io/&lt;your_quay_username&gt;/devspaces-ubi9-nodejs:latest</em>
+...</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>If you have a Quay.io account, you can tag your locally built container image and push it to Quay.io. Otherwise, you can use the pre-built container image at <a href="https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs" class="bare" target="_blank" rel="noopener">https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs</a> in your devfile.</p>
+</li>
+<li>
+<p>Inspect the devfile for the application at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml</a>. It consists of two container images - the custom Node.js one you built, and a MongoDB image which is used to store application data. You can clone this repository to your own GitHub account if you wish. If you pushed your own custom image to Quay.io, edit the devfile and replace the <code>components.container.image</code> attribute and point it to our image.</p>
+</li>
+<li>
+<p>Log in to Dev Spaces as <code>user1</code>. Copy the GitHub URL of the application in the <code>Git repo URL</code> field, and click <code>Create &amp; Open</code>.</p>
+</li>
+<li>
+<p>Wait for the workspace to start. If you see an error about post start-up hooks, it means your <code>Dockerfile</code> is incorrect and does not conform to what Dev Spaces expects. Review and fix the issues in the Dockerfile and rebuild your image.</p>
+</li>
+<li>
+<p>Open the <code>Tasks</code> menu in VS Code, and run the <code>devfile: Run the Application</code> task to start the application.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/run-nodejs-mongo-app.png" alt="run nodejs mongo app">
+</div>
+<div class="title">Figure 1. Run Node.js/MongoDB App</div>
+</div>
+</li>
+<li>
+<p>You will see a pop-up in the bottom right corner about allowing traffic to port <code>8080</code>. Click <code>Yes</code> to allow and click <code>Open in New Tab</code> to view the application</p>
+</li>
+<li>
+<p>Enter some messages in the <code>GuestBook</code> application and verify that your messages are rendered correctly in the application.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/guestbook-app.png" alt="guestbook app">
+</div>
+<div class="title">Figure 2. GuestBook App</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/devfile/cloud-dev-images" target="_blank" rel="noopener">Dockerfile samples for Dev Spaces</a></p>
+</li>
+<li>
+<p><a href="https://docs.openshift.com/container-platform/4.16/openshift_images/create-images.html#images-create-guide-openshift_create-images" target="_blank" rel="noopener">Openshift Container Platform guidelines</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<nav class="pagination">
+  <span class="prev"><a href="registry.html">Devfile Registry</a></span>
+</nav>
+</article>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <img src="../../../_/img/rhl-logo-red.png" height="40px" alt="Red Hat"  href="https://redhat.com" >
+</footer><script id="site-script" src="../../../_/js/site.js" data-ui-root-path="../../../_"></script>
+<script async src="../../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
