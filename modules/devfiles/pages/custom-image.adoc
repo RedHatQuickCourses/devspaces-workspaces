@@ -75,7 +75,7 @@ In this hands-on lab, you will build a non-UDI, custom Node.js + MongoDB-based c
 
 This lab assumes that you have `Podman` CLI installed and working on your laptop. You will build the container image locally use the resulting image in a Devfile, and then launch and test a workspace based on this image.
 
-. Download and inspect the `Dockerfile` for the base image at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile. You will use a `ubi9` base image and install the `nodejs` package using the `dnf install` command.
+. Download and inspect the `Dockerfile` for the base image at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile[window=_blank]. You will use a `ubi9` base image and install the `nodejs` package using the `dnf install` command.
 +
 [source,Dockerfile,subs=+quotes]
 ----
@@ -108,7 +108,7 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "tail", "-f", "/dev/null" ]
 ----
 
-. Download and inspect the accompanying `entrypoint.sh` file at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh.
+. Download and inspect the accompanying `entrypoint.sh` file at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh[window=_blank].
 +
 [source,bash,subs=+quotes]
 ----
@@ -179,9 +179,9 @@ Successfully tagged quay.io/<your_quay_username>/devspaces-ubi9-nodejs:latest_
 ...
 ----
 
-. If you have a Quay.io account, you can tag your locally built container image and push it to Quay.io. Otherwise, you can use the pre-built container image at https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs in your devfile.
+. If you have a Quay.io account, you can tag your locally built container image and push it to Quay.io. Otherwise, you can use the pre-built container image at https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs[window=_blank] in your devfile.
 
-. Inspect the devfile for the application at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml. It consists of two container images - the custom Node.js one you built, and a MongoDB image which is used to store application data. You can clone this repository to your own GitHub account if you wish. If you pushed your own custom image to Quay.io, edit the devfile and replace the `components.container.image` attribute and point it to our image.
+. Inspect the devfile for the application at https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml[window=_blank]. It consists of two container images - the custom Node.js one you built, and a MongoDB image which is used to store application data. You can clone this repository to your own GitHub account if you wish. If you pushed your own custom image to Quay.io, edit the devfile and replace the `components.container.image` attribute and point it to our image.
 
 . Log in to Dev Spaces as `user1`. Copy the GitHub URL of the application in the `Git repo URL` field, and click `Create & Open`.
 

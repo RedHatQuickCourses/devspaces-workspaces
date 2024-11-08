@@ -14,7 +14,7 @@ This chapter will cover launching Workspaces using Git repositories and the Dash
 
 You can use a Git repository URL in your browser to launch a new workspace that contains a clone of a Git repository. This way, you can clone a Git repository that is hosted on GitHub, GitLab, Bitbucket, or Microsoft Azure DevOps server instances.
 
-A number of useful starter examples for various programming language runtimes and frameworks are available at https://github.com/orgs/devspaces-samples/repositories.
+A number of useful starter examples for various programming language runtimes and frameworks are available at https://github.com/orgs/devspaces-samples/repositories[window=_blank].
 
 === Launching Workspaces using Dev Spaces URL
 
@@ -40,7 +40,7 @@ If you have a pull request in your GitHub repository with an ID of 100, then to 
 
 > https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/pull/100
 
-Consult the product documentation at https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps, etc.
+Consult the product documentation for more information on https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url[starting a workspace from a Git repository URL^], including examples for other source control systems such as Gitlab, BitBucket, and Azure DevOps. at  for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps, etc.
 
 == Lab: Create a Workspace using a Git Repository
 
@@ -52,7 +52,7 @@ You must have installed and configured a Dev Spaces instance in the second cours
 
 . Log in to Dev Spaces as the `user1` user. 
 
-. Inspect the GitHub repository at https://github.com/che-samples/web-nodejs-sample. This repository contains the source code for a simple Node.js web application. You will create a workspace and clone this repository in the next steps. Inspect and review the `devfile.yaml`, which is the Devfile for this application, and it is always stored at the root of the Git repository
+. Inspect the GitHub repository at https://github.com/che-samples/web-nodejs-sample[window=_blank]. This repository contains the source code for a simple Node.js web application. You will create a workspace and clone this repository in the next steps. Inspect and review the `devfile.yaml`, which is the Devfile for this application, and it is always stored at the root of the Git repository
 +
 NOTE: You can also import a Git repository without a `devfile.yaml`. In such a case, Dev Spaces will use Red Hat's __Universal Developer Image (UDI)__ as the base image, if a base container image is not provided in the `devfile.yaml`. UDI is a large container image containing the development tools and runtimes for a number of popular programming languages. You will learn about UDI in a separate section in the `Devfiles` chapter.
 
