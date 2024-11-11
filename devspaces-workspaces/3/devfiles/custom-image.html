@@ -241,7 +241,7 @@ exec "$@"</code></pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Download and inspect the <code>Dockerfile</code> for the base image at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile" class="bare">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile</a>. You will use a <code>ubi9</code> base image and install the <code>nodejs</code> package using the <code>dnf install</code> command.</p>
+<p>Download and inspect the <code>Dockerfile</code> for the base image at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/Dockerfile</a>. You will use a <code>ubi9</code> base image and install the <code>nodejs</code> package using the <code>dnf install</code> command.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-lang="Dockerfile">FROM <strong>registry.access.redhat.com/ubi9/ubi:9.4-1214.1729773476</strong>
@@ -275,7 +275,7 @@ CMD [ "tail", "-f", "/dev/null" ]</code></pre>
 </div>
 </li>
 <li>
-<p>Download and inspect the accompanying <code>entrypoint.sh</code> file at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh" class="bare">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh</a>.</p>
+<p>Download and inspect the accompanying <code>entrypoint.sh</code> file at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/entrypoint.sh</a>.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
@@ -348,10 +348,10 @@ Successfully tagged quay.io/&lt;your_quay_username&gt;/devspaces-ubi9-nodejs:lat
 </div>
 </li>
 <li>
-<p>If you have a Quay.io account, you can tag your locally built container image and push it to Quay.io. Otherwise, you can use the pre-built container image at <a href="https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs" class="bare">https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs</a> in your devfile.</p>
+<p>If you have a Quay.io account, you can tag your locally built container image and push it to Quay.io. Otherwise, you can use the pre-built container image at <a href="https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs" class="bare" target="_blank" rel="noopener">https://quay.io/repository/rsriniva/devspaces-ubi9-nodejs</a> in your devfile.</p>
 </li>
 <li>
-<p>Inspect the devfile for the application at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml" class="bare">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml</a>. It consists of two container images - the custom Node.js one you built, and a MongoDB image which is used to store application data. You can clone this repository to your own GitHub account if you wish. If you pushed your own custom image to Quay.io, edit the devfile and replace the <code>components.container.image</code> attribute and point it to our image.</p>
+<p>Inspect the devfile for the application at <a href="https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/nodejs-mongodb-sample/blob/devspaces-3-rhel-8/devfile.yaml</a>. It consists of two container images - the custom Node.js one you built, and a MongoDB image which is used to store application data. You can clone this repository to your own GitHub account if you wish. If you pushed your own custom image to Quay.io, edit the devfile and replace the <code>components.container.image</code> attribute and point it to our image.</p>
 </li>
 <li>
 <p>Log in to Dev Spaces as <code>user1</code>. Copy the GitHub URL of the application in the <code>Git repo URL</code> field, and click <code>Create &amp; Open</code>.</p>
