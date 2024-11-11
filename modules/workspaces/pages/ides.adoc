@@ -45,9 +45,9 @@ Now, when you launch a workspace from Dev Spaces, this file is parsed and the ed
 
 == Setting IDE in URL Parameter
 
-You can also launch a workspace with a specific editor by passing the editor ID value as a URL parameter. For example, let's say you want to open the GitHub repository https://github.com/agiertli/quarkus-workshops in Dev Spaces using the IntelliJ IDEA Community Edition IDE, pass a `che-editor` URL parameter and the editor ID as the value as follows:
+You can also launch a workspace with a specific editor by passing the editor ID value as a URL parameter. For example, let's say you want to open the GitHub repository https://github.com/agiertli/quarkus-workshops[window=_blank] in Dev Spaces using the IntelliJ IDEA Community Edition IDE, pass a `che-editor` URL parameter and the editor ID as the value as follows:
 
-https://devspaces.apps.cluster.example.com/dashboard/#/https://github.com/agiertli/quarkus-workshops?che-editor=che-incubator/che-idea/latest 
+https://devspaces.apps.cluster.example.com/dashboard/#/https://github.com/agiertli/quarkus-workshops?che-editor=che-incubator/che-idea/latest[window=_blank]
 
 In all cases, your IntelliJ IDEA workspace should look like below:
 

@@ -41,7 +41,7 @@ NOTE: The `podman build -t <image> && podman run <image>` command will fail. Ins
 
 == Lab: Enabling Kubedock and Working with Containers in Workspaces
 
-. Inspect the repository at https://github.com/rsriniva/kubedock-test. Review the simple devfile at https://github.com/rsriniva/kubedock-test/blob/main/devfile.yaml
+. Inspect the repository at https://github.com/rsriniva/kubedock-test[window=_blank]. Review the simple devfile at https://github.com/rsriniva/kubedock-test/blob/main/devfile.yaml[window=_blank].
 +
 [source,yaml,subs=+quotes]
 ----

@@ -2,23 +2,23 @@
 
 A `Devfile Registry` is a central repository or catalog that stores a collection of predefined `Devfiles`. These devfiles can be used by developers to quickly create and configure consistent development environments for various applications, frameworks, and programming languages.
 
-The registry is often hosted as a service, which can be publicly accessible (https://registry.devfile.io/) or private (self-hosted). The registry server provides access to the available devfiles and facilitates their discovery and retrieval.
+The registry is often hosted as a service, which can be publicly accessible or private (self-hosted). The registry server provides access to the available devfiles and facilitates their discovery and retrieval.
 
-An example of a widely used devfile registry is https://registry.devfile.io. It offers a variety of predefined devfiles for languages like Python, Java, Node.js, Quarkus, and more.
+An example of a publicly accessible and widely used devfile registry is https://registry.devfile.io[window=_blank]. It offers a variety of predefined devfiles for languages like Python, Java, Node.js, Quarkus, and more.
 
 image::community-registry.png[title=Devfile Community Registry]
 
-A number of sample Devfiles for Dev Spaces are available at https://github.com/devspaces-samples. You can explore and customize these samples to your needs.
+A number of sample Devfiles for Dev Spaces are available at https://github.com/devspaces-samples[window=_blank]. You can explore and customize these samples to your needs.
 
-NOTE: Dev Spaces deploys its own internal registry that contains the Devfiles for the "getting started sample" applications. Adding your own devfiles to the internal registry is covered in the xref:workspaces:custom.adoc[Customizing Samples in the Dashboard] section.
+NOTE: Dev Spaces deploys its own internal registry that contains the Devfiles for the "getting started sample" applications. Adding your own devfiles to the internal registry is covered in the xref:workspaces:custom.adoc[Customizing Samples in the Dashboard^] section.
 
-NOTE: You can create and run your own customized devfile registry outside the cluster. The process to do so is outside the scope of this course. Consult the README file at https://github.com/devfile/registry for details.
+NOTE: You can create and run your own customized devfile registry outside the cluster. The process to do so is outside the scope of this course. Consult the README file at https://github.com/devfile/registry[window=_blank] for details.
 
 == Lab: Creating a Workspace from the Community Devfile Registry
 
 In this hands-on lab, you will browse the public community Devfile catalog and create a workspace from it.
 
-. Using a browser, navigate to https://devfile.io. Search for a `Spring Boot` application. For example, one of the results is `Spring Boot using Java` at https://registry.devfile.io/viewer/devfiles/community/java-springboot. Open this item.
+. Using a browser, navigate to https://registry.devfile.io[window=_blank]. Search for a `Spring Boot` application. For example, one of the results is `Spring Boot using Java` at https://registry.devfile.io/viewer/devfiles/community/java-springboot[window=_blank]. Open this item.
 
 . Click on `Raw devfile` in the right sidebar (below `Resources`). Copy the resulting URL. It defines a devfile for a basic Spring Boot application.
 +
