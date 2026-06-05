@@ -133,11 +133,11 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Dev Spaces dashboard offers a number of getting started samples allowing developers to quickly launch workspaces at the click of a button without providing Git repository URLs or Devfiles.</p>
+<p>The Dev Spaces Dashboard provides a collection of <em>Getting Started</em> samples that allow developers to quickly create workspaces from preconfigured Devfiles and source repositories.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="_images/dashboard-samples.png" alt="dashboard samples">
+<img src="_images/dashsample.png" alt="dashsample">
 </div>
 <div class="title">Figure 1. Dashboard Getting Started Samples</div>
 </div>
@@ -155,9 +155,6 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The sample dashboard in Dev Spaces is populated from JSON files. The sample format is available at <a href="https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json" class="bare" target="_blank" rel="noopener">https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json</a>.</p>
-</li>
-<li>
 <p>Inspect the sample Rust application at <a href="https://github.com/rsriniva/rust-devspaces" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/rust-devspaces</a>. This simple example imports an ASCII art library and prints a simple message. Fork this repository to your own GitHub account.</p>
 </li>
 <li>
@@ -165,6 +162,20 @@
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-json hljs" data-lang="json">[
+  cat &gt; my-samples.json &lt;&lt;EOF
+[
+  {
+    "displayName": "&lt;display_name&gt;",
+    "description": "&lt;description&gt;",
+    "tags": &lt;tags&gt;,
+    "url": "&lt;url&gt;",
+    "icon": {
+      "base64data": "&lt;base64data&gt;",
+      "mediatype": "&lt;mediatype&gt;"
+    }
+  }
+]
+EOF
   {
     "id": "rust",
     "displayName": "Rust",
@@ -172,7 +183,7 @@
     "tags": [
       "Rust",
       "Cargo",
-      "UBI8"
+      "UBI9"
     ],
     "url": "https://github.com/rsriniva/rust-devspaces",
     "icon": {
@@ -311,7 +322,10 @@ spec:
 <div class="ulist">
 <ul>
 <li>
-<p>* <a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/administration_guide/index#configuring-dashboard" target="_blank" rel="noopener">Configuring the Dev Spaces Dashboard</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/administration_guide/index#assembly_configuring-dashboard_administration_guide" target="_blank" rel="noopener">Configuring the Dev Spaces Dashboard</a></p>
+</li>
+<li>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/administration_guide/index#configuring-getting-started-samples_administration_guide" target="_blank" rel="noopener">Configure getting started samples</a></p>
 </li>
 </ul>
 </div>

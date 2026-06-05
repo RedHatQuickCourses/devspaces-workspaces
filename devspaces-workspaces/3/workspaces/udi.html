@@ -136,13 +136,13 @@
 <p><em>Red Hat&#8217;s Universal Developer Image (UDI)</em> is a base container image designed to provide a comprehensive and consistent development environment for developers using OpenShift Dev Spaces. The UDI aims to offer a standardized, pre-configured environment for developers across various projects and languages. It is designed to reduce setup time and ensure consistency across different development environments.</p>
 </div>
 <div class="paragraph">
-<p>By default, newly created workspaces that do not specify a devfile will use the Universal Developer Image (UDI). The UDI contains common development tools and dependencies, plus a large number of programming language compilers and runtimes commonly used by modern cloud-native application developers.</p>
+<p>By default, when a Git repository does not contain a devfile.yaml, OpenShift Dev Spaces generates a default Devfile and creates the workspace using the Universal Developer Image (UDI). The UDI contains common development tools and dependencies, plus a large number of programming language compilers and runtimes commonly used by modern cloud-native application developers.</p>
 </div>
 <div class="paragraph">
 <p>In addition, tools like <code>Podman</code> and <code>Buildah</code> are included in the UDI, allowing developers to build and push container images from their workspace.</p>
 </div>
 <div class="paragraph">
-<p>Red Hat maintains and updates the UDI to include the latest stable versions of tools. The <code>Dockerfile</code> used to build the UDI is available at <a href="https://github.com/devfile/developer-images" class="bare" target="_blank" rel="noopener">https://github.com/devfile/developer-images</a>.</p>
+<p>Red Hat regularly updates the UDI to provide current and supported versions of development tools and runtimes. The <code>Dockerfile</code> used to build the UDI is available at <a href="https://github.com/devfile/developer-images" class="bare" target="_blank" rel="noopener">https://github.com/devfile/developer-images</a>.</p>
 </div>
 <div class="paragraph">
 <p>The latest updated UDI container images are available from the Quay.io container registry at <a href="https://quay.io/repository/devfile/universal-developer-image?tab=tags&amp;tag=latest" class="bare" target="_blank" rel="noopener">https://quay.io/repository/devfile/universal-developer-image?tab=tags&amp;tag=latest</a>.</p>
@@ -162,21 +162,66 @@
 <ol class="arabic">
 <li>
 <p>Fork the Git repository at <a href="https://github.com/rsriniva/simple-flask-app" class="bare" target="_blank" rel="noopener">https://github.com/rsriniva/simple-flask-app</a> to your own GitHub account. This repository contains the source code for a simple Python web application based on the <code>Flask</code> framework. It does <strong>NOT</strong> contain a <code>Devfile</code>.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/fork.png" alt="fork">
+</div>
+<div class="title">Figure 1. Forked repository</div>
+</div>
 </li>
 <li>
 <p>Log in to Dev Spaces as <code>user1</code> (or any valid user).</p>
 </li>
 <li>
 <p>Create and open a new workspace in Dev Spaces by providing <code><a href="https://github.com/&lt;your-github-id&gt;/simple-flask-app" class="bare">https://github.com/&lt;your-github-id&gt;/simple-flask-app</a></code> in the <code>Git Repo URL</code> field in the Dev Spaces dashboard.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/addworkspace.png" alt="addworkspace">
+</div>
+<div class="title">Figure 2. Create new workspace</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/gitrepo.png" alt="gitrepo">
+</div>
+<div class="title">Figure 3. Enter forked repository</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="_images/devspace.png" alt="devspace">
+</div>
+<div class="title">Figure 4. Open code in Devspace workspace</div>
+</div>
 </li>
 <li>
 <p>The workspaces are opened using the default UDI base container image, which contains the Python 3 runtime and developer tools (<code>pip</code>, <code>pip3</code>, etc) by default.</p>
 </li>
 <li>
-<p>Open a new terminal in the workspace and run <code>pip install flask</code> to install the dependencies for the application.</p>
+<p>Open a new terminal in the workspace.</p>
+<div class="imageblock">
+<div class="content">
+<img src="_images/terminal.png" alt="terminal">
+</div>
+<div class="title">Figure 5. Open new terminal</div>
+</div>
+</li>
+<li>
+<p>Create a virtual environment and run <code>pip install flask</code> to install the dependencies for the application.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install flask</code></pre>
+</div>
+</div>
 </li>
 <li>
 <p>Run <code>python main.py</code> to start the application. You will be prompted in the bottom right corner to allow port <code>8080</code> to be open. Click <code>yes</code>.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">$ python main.py</code></pre>
+</div>
+</div>
 </li>
 <li>
 <p>You will now be prompted to open the web application. Click <code>Open in New Tab</code>, and click <code>Open</code> once again in the pop-up</p>
