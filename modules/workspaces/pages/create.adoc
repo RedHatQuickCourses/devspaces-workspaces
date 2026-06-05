@@ -1,46 +1,47 @@
 = Creating Workspaces
 
-You can create a Workspace using different ways:
+There are several ways to create a workspace in Red Hat OpenShift Dev Spaces:
 
-* *Devfile*: You can create a workspace by providing a devfile, which is a YAML configuration that defines the workspace environment.
-* *Dashboard Template*: Red Hat OpenShift Dev Spaces offers pre-configured workspace templates for common development stacks. You can launch these from the Dev Spaces dashboard page.
-* *Git repository*: You can create a workspace directly from an existing Git repository.
+* **Devfile**: You can create a workspace by providing a Devfile. A Devfile is a YAML-based specification that defines the workspace environment, including containers, tools, commands, and project source code locations. This is the most flexible and commonly used approach for creating and customizing workspaces.
 
-*Devfiles* are covered in detail in a separate chapter. This is the most common and flexible approach, allowing you to customize the Workspace environment to suit your needs.
+* **Dashboard Samples**: Red Hat OpenShift Dev Spaces provides a collection of sample workspaces for common programming languages, frameworks, and development scenarios. These samples can be launched directly from the Dev Spaces dashboard and provide a quick way to get started.
 
-This chapter will cover launching Workspaces using Git repositories and the Dashboard Templates.
+* **Git Repository**: You can create a workspace directly from an existing Git repository. Dev Spaces automatically clones the repository and creates a workspace based on the associated Devfile or by using a suitable default configuration.
 
-== Creating a Workspace using a Git Repository
+Devfiles are covered in detail in a separate chapter. Because Devfiles define the workspace configuration as code, they provide the greatest flexibility and are the recommended approach for creating and managing workspaces.
 
-You can use a Git repository URL in your browser to launch a new workspace that contains a clone of a Git repository. This way, you can clone a Git repository that is hosted on GitHub, GitLab, Bitbucket, or Microsoft Azure DevOps server instances.
+In this chapter, you will learn how to create and launch workspaces from Git repositories and the sample workspaces available through the Dev Spaces dashboard.
 
-A number of useful starter examples for various programming language runtimes and frameworks are available at https://github.com/orgs/devspaces-samples/repositories[window=_blank].
 
-=== Launching Workspaces using Dev Spaces URL
+== Creating a Workspace from a Git Repository
 
-The Dev Spaces dashboard is an intuitive, easy-to-use web-based user interface to launch and manage workspaces. You can also create a workspace by using the Dev Spaces root URL and then appending the Git repository URL and various other settings as URL parameters to the root URL.
+You can create a workspace directly from a Git repository URL. Dev Spaces clones the repository and creates a development environment based on the Devfile contained in the repository or by using an appropriate default configuration.
 
-If your Dev Spaces fully qualified domain name (FQDN) is https://openshift_dev_spaces_fqdn, then you can launch a workspace by navigating to:
+Dev Spaces supports repositories hosted on GitHub, GitLab, Bitbucket, Azure DevOps, and other Git-compatible source control platforms.
 
-> https://<openshift_dev_spaces_fqdn>#git_repository_url
+Several sample repositories are available for exploring different programming languages, frameworks, and development scenarios.
 
-For example, to open the source code of a GitHub repository in a Dev Spaces workspace:
+=== Launching a Workspace Using a Dev Spaces URL
 
-> https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world
+The Dev Spaces dashboard provides a web-based interface for creating and managing workspaces. You can also create a workspace directly by using the Dev Spaces URL and specifying a Git repository URL.
 
-The above URL creates a new workspace with a clone of the default branch in the Git repository (usually `main`, but it depends on what branch you have configured as the default).
+* If your Dev Spaces fully qualified domain name (FQDN) is: ** https://<openshift_dev_spaces_fqdn>**
 
-To start a new workspace with a clone of the `staging` branch:
+* You can launch a workspace by navigating to: **https://<openshift_dev_spaces_fqdn>#<git_repository_url>**
++
+For example, to create a workspace from a GitHub repository: **https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world**
++
+This URL creates a workspace using the default branch of the repository, typically `main`.
 
-> https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/tree/staging
+* To create a workspace using a specific branch: **https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/tree/staging**
++
+Replace `staging` with the desired branch name.
 
-Replace `staging` with any other branch in your repository to open the source code tree of that branch.
+* To create a workspace from a GitHub pull request: **https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/pull/100**
++
+Replace `100` with the pull request number.
 
-If you have a pull request in your GitHub repository with an ID of 100, then to open the code in the PR:
-
-> https://<openshift_dev_spaces_fqdn>#https://github.com/che-samples/cpp-hello-world/pull/100
-
-Consult the product documentation for more information on https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#starting-a-workspace-from-a-git-repository-url[starting a workspace from a Git repository URL^], including examples for other source control systems such as Gitlab, BitBucket, and Azure DevOps. at  for more examples, and for URL examples for other source control systems like GitLab, BitBucket, Azure DevOps, etc.
+For additional examples and supported URL formats for GitHub, GitLab, Bitbucket, Azure DevOps, and other source control systems, refer to the https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/index?utm_source=chatgpt.com#starting-a-workspace-from-a-git-repository-url_user_guid[Red Hat OpenShift Dev Spaces User Guide section on starting a workspace from a Git repository URL.^]
 
 == Lab: Create a Workspace using a Git Repository
 
@@ -100,4 +101,4 @@ image::oc-tools.png[title=OpenShift client tool]
 
 == References
 
-* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#getting-started-with-devspaces[Getting Started with Workspaces^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/index#assembly_getting-started_user_guide[Getting Started with Workspaces^]

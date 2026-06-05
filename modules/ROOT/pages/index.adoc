@@ -14,7 +14,7 @@ This course is the `fourth` in a series of `five` courses about Red Hat OpenShif
 
 This course covers how to create, customize, and manage `Workspaces` on Dev Spaces.
 
-NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift Dev Spaces 3.16*. The labs should mostly work on minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
+NOTE: The hands-on labs for this course have been tested on *Red Hat OpenShift Dev Spaces 3.27*. The labs should mostly work on minor update releases of Dev Spaces. If you encounter any issues, please open a GitHub issue in the course repository.
 
 == Course Objectives
 
@@ -41,6 +41,7 @@ The overall objectives of this course include:
 The PTL team acknowledges the valuable contributions of the following Red Hat associates:
 
 * Ravi Srinivasan
+* Yogita Soni
 * Rutuja Deshmukh
 * Anna Swicegood
 * Caitlyn Rymarchyk

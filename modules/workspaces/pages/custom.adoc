@@ -1,17 +1,15 @@
 = Customizing Samples in the Dashboard
 :navtitle: Samples Dashboard
 
-The Dev Spaces dashboard offers a number of getting started samples allowing developers to quickly launch workspaces at the click of a button without providing Git repository URLs or Devfiles. 
+The Dev Spaces Dashboard provides a collection of _Getting Started_ samples that allow developers to quickly create workspaces from preconfigured Devfiles and source repositories.
 
-image::dashboard-samples.png[title=Dashboard Getting Started Samples]
+image::dashsample.png[title=Dashboard Getting Started Samples]
 
 In this section, you will learn how to provide developers with an easy way to launch workspaces by clicking on menu entries in the dashboard rather than manually providing Git repository URLs.
 
 == Lab: Launching Workspaces from the Dashboard
 
 In this hands-on lab, you will add a new launcher to the samples dashboard for an example Rust programming language project.
-
-. The sample dashboard in Dev Spaces is populated from JSON files. The sample format is available at https://github.com/redhat-developer/devspaces-images/blob/devspaces-3-rhel-8/devspaces-dashboard/samples/index.json[window=_blank].
 
 . Inspect the sample Rust application at https://github.com/rsriniva/rust-devspaces[window=_blank]. This simple example imports an ASCII art library and prints a simple message. Fork this repository to your own GitHub account.
 
@@ -20,6 +18,20 @@ In this hands-on lab, you will add a new launcher to the samples dashboard for a
 [source,json,subs=+quotes]
 ----
 [
+  cat > my-samples.json <<EOF
+[
+  {
+    "displayName": "<display_name>",
+    "description": "<description>",
+    "tags": <tags>,
+    "url": "<url>",
+    "icon": {
+      "base64data": "<base64data>",
+      "mediatype": "<mediatype>"
+    }
+  }
+]
+EOF
   {
     "id": "rust",
     "displayName": "Rust",
@@ -27,7 +39,7 @@ In this hands-on lab, you will add a new launcher to the samples dashboard for a
     "tags": [
       "Rust", 
       "Cargo",
-      "UBI8"
+      "UBI9"
     ],
     "url": "https://github.com/rsriniva/rust-devspaces",
     "icon": {
@@ -132,4 +144,5 @@ image::internal-reg-disabled.png[title=Internal Devfile Registry Disabled]
 
 == References
 
-* * https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/administration_guide/index#configuring-dashboard[Configuring the Dev Spaces Dashboard^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/administration_guide/index#assembly_configuring-dashboard_administration_guide[Configuring the Dev Spaces Dashboard^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/administration_guide/index#configuring-getting-started-samples_administration_guide[Configure getting started samples^]
