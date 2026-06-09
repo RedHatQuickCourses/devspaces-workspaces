@@ -78,7 +78,7 @@
     <a class="nav-link" href="../devfiles/index.html">Devfiles</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="../devfiles/create.html">Creating a Devfile</a>
+    <a class="nav-link" href="../devfiles/create.html">Understanding Devfile Structure</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="../devfiles/registry.html">Devfile Registry</a>
@@ -138,18 +138,6 @@
 <div class="paragraph">
 <p>This is particularly useful in development environments like Dev Spaces, which is designed for cloud-native, OpenShift-based development.</p>
 </div>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-important" title="Important"></i>
-</td>
-<td class="content">
-Kubedock is meant as a temporary stop-gap fix to run "containers inside containers". OpenShift 4.17+ will allow this functionality to work natively without the need for Kubedock.
-</td>
-</tr>
-</table>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -176,7 +164,7 @@ When a developer issues a <code>podman run</code> command, instead of using the 
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Podman Workflow:</strong> Developers can use familiar Podman commands (podman run, podman build, etc.) while developing in an OpenShift environment, maintaining their existing workflows. Instead of learning OpenShift-specific tools and syntax, they can continue using Podman commands that are familiar to them.</p>
+<p><strong>Podman Workflow:</strong> Developers can use container tooling such as Podman or applications relying on Docker-compatible APIs. Commands like <strong>podman run</strong> work because Podman communicates with Kubedock through the configured <strong>DOCKER_HOST</strong>.</p>
 </li>
 <li>
 <p><strong>OpenShift Integration:</strong> Kubedock ensures that containers run inside the OpenShift cluster, integrating seamlessly with other OpenShift services like networking, storage, and scaling, providing cloud-native capabilities. Developers get the benefits of OpenShift (scalability, orchestration, etc.) while retaining the simplicity of Podman commands. This provides a hybrid development experience that leverages the strengths of both Podman and OpenShift.</p>
@@ -194,7 +182,7 @@ When a developer issues a <code>podman run</code> command, instead of using the 
 <p><strong>Support for Complex Development Environments:</strong> Kubedock enables the use of complex containerized environments directly in OpenShift, supporting multi-container applications, microservices, or multi-tiered setups that are easier to orchestrate in an OpenShift cluster than with standalone Podman.</p>
 </li>
 <li>
-<p><strong>Reduced Local Setup Complexity:</strong> Developers using Eclipse Che in combination with Kubedock don’t need to install Podman or manage local container runtimes. Everything is managed by OpenShift, reducing the overhead of local environment setup and configuration.</p>
+<p><strong>Reduced Local Setup Complexity:</strong> Developers using Dev Spaces in combination with Kubedock don’t need to install Podman or manage local container runtimes. Everything is managed by OpenShift, reducing the overhead of local environment setup and configuration.</p>
 </li>
 </ul>
 </div>
@@ -230,7 +218,7 @@ The <code>podman build -t &lt;image&gt; &amp;&amp; podman run &lt;image&gt;</cod
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#running-containers-with-kubedock" target="_blank" rel="noopener">Kubedock</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/user_guide?utm_source=chatgpt.com#con_running-containers-with-kubedock_user_guide" target="_blank" rel="noopener">Kubedock</a></p>
 </li>
 </ul>
 </div>
@@ -266,7 +254,7 @@ components:
 </div>
 </div>
 <div class="paragraph">
-<p>You need to add two environment variables to the devfile (<code>KUBEDOCK_ENABLED</code> and <code>DOCKER_HOST</code>). The first enabled Kubedock in the workspace, and the second indicates that the local daemon should be used for container builds. You also need to add an <code>endpoint</code> section and declare the port at which the Kubedock daemon should listen.</p>
+<p>You need to add two environment variables to the devfile (<code>KUBEDOCK_ENABLED</code> and <code>DOCKER_HOST</code>). The first enables Kubedock in the workspace, and the second specifies the endpoint of the Kubedock daemon, allowing Podman and Docker-compatible tools to redirect container requests to Kubedock running inside the workspace. You also need to add an <code>endpoint</code> section and declare the port at which the Kubedock daemon should listen.</p>
 </div>
 </li>
 <li>

@@ -78,7 +78,7 @@
     <a class="nav-link" href="index.html">Devfiles</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="create.html">Creating a Devfile</a>
+    <a class="nav-link" href="create.html">Understanding Devfile Structure</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="registry.html">Devfile Registry</a>
@@ -132,7 +132,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>A Devfile is a YAML-based configuration file used to describe and manage development environments. Originally introduced as part of the Eclipse Che and OpenShift development ecosystems, it has since gained broader adoption.</p>
+<p>A Devfile is a YAML-based configuration file that follows the Devfile 2.x specification to describe and manage containerized development environments. Originally introduced as part of the Eclipse Che ecosystem, Devfiles have evolved into an open specification for defining cloud-native development environments and are widely used by platforms such as Red Hat OpenShift Dev Spaces.</p>
 </div>
 <div class="paragraph">
 <p>Devfiles help streamline development by providing a consistent, automated, and cloud-native approach to setting up and managing development environments. This makes it particularly beneficial for teams working on modern, distributed, and containerized applications.</p>
@@ -184,7 +184,7 @@
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-It is a good practice to always include a Devfile to create a Workspace and customize the environment to your application needs. You do not mandatorily need a Devfile to start a workspace. If you do not include a Devfile in your project repository, Red Hat OpenShift Dev Spaces automatically loads a default Devfile with the Universal Developer Image (UDI) as the base container image.
+It is a good practice to include a Devfile in your source repository to define and customize the development environment for your application. Although a Devfile is not mandatory to start a workspace, if one is not present, OpenShift Dev Spaces attempts to generate an appropriate Devfile based on the detected project type, typically using Universal Developer Image (UDI)-based stacks.
 </td>
 </tr>
 </table>
@@ -200,7 +200,7 @@ It is a good practice to always include a Devfile to create a Workspace and cust
 <p><a href="https://devfile.io" target="_blank" rel="noopener">Devfile website</a></p>
 </li>
 <li>
-<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#devfile-introduction" target="_blank" rel="noopener">Introduction to devfile in Dev Spaces</a></p>
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/index#devfile-introduction_user_guide" target="_blank" rel="noopener">Introduction to devfile in Dev Spaces</a></p>
 </li>
 </ul>
 </div>
@@ -208,7 +208,7 @@ It is a good practice to always include a Devfile to create a Workspace and cust
 </div>
 <nav class="pagination">
   <span class="prev"><a href="../workspaces/ides.html">Multiple IDEs in Dev Spaces</a></span>
-  <span class="next"><a href="create.html">Creating a Devfile</a></span>
+  <span class="next"><a href="create.html">Understanding Devfile Structure</a></span>
 </nav>
 </article>
   </div>

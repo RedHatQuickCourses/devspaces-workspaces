@@ -77,7 +77,7 @@
     <a class="nav-link" href="index.html">Devfiles</a>
 <ul class="nav-list">
   <li class="nav-item" data-depth="2">
-    <a class="nav-link" href="create.html">Creating a Devfile</a>
+    <a class="nav-link" href="create.html">Understanding Devfile Structure</a>
   </li>
   <li class="nav-item" data-depth="2">
     <a class="nav-link" href="registry.html">Devfile Registry</a>
@@ -151,7 +151,7 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using the <code>FROM</code> directive in the Dockerfile), and then add support for your application. UDI provides a container image with a certain specific configuration that is compliant with Dev Spaces.</p>
+<p>Whenever possible, Red Hat recommends extending the Universal Developer Image (UDI) rather than building a completely custom image. UDI already includes the dependencies required by supported IDEs and development tooling.</p>
 </div>
 <div class="paragraph">
 <p>If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the <em>References</em> section for examples. It is highly recommended to use the Red Hat-provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image <strong>MUST</strong> be OpenShift compliant).</p>
@@ -179,36 +179,46 @@ This Dockerfile uses <code>ubi-minimal</code> as the base. Replace <code>microdn
 <div class="listingblock">
 <div class="title">Dockerfile</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-lang="Dockerfile">FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10-1086
+<pre class="highlightjs highlight"><code class="language-Dockerfile hljs" data-lang="Dockerfile">FROM registry.redhat.io/ubi9/ubi-minimal
 
 ARG USER_HOME_DIR="/home/user"
 ARG WORK_DIR="/projects"
 
+# Configure the default shell used in terminals
+ENV SHELL=/usr/bin/bash
+
+# Required for OpenShift arbitrary UID support
 ENV HOME=${USER_HOME_DIR}
+
+# Required when using Buildah inside containers
 ENV BUILDAH_ISOLATION=chroot
 
 COPY --chown=0:0 entrypoint.sh /
 
-# Note: compat-openssl11 &amp; libbrotli are needed for che-code (Che build of VS Code)
-
-RUN microdnf --disableplugin=subscription-manager install -y openssl compat-openssl11 libbrotli; \
-    microdnf update -y ; \
-    microdnf clean all ; \
-    mkdir -p ${USER_HOME_DIR} ; \
-    mkdir -p ${WORK_DIR} ; \
-    chgrp -R 0 /home ; \
-    chmod +x /entrypoint.sh ; \
-    chmod -R g=u /etc/passwd /etc/group /home ${WORK_DIR}
+RUN microdnf --disableplugin=subscription-manager install -y \
+        bash \
+        openssl \
+        libbrotli \
+        shadow-utils \
+    &amp;&amp; microdnf clean all \
+    &amp;&amp; mkdir -p ${USER_HOME_DIR} ${WORK_DIR} \
+    &amp;&amp; chgrp -R 0 /home ${WORK_DIR} \
+    &amp;&amp; chmod +x /entrypoint.sh \
+    &amp;&amp; chmod -R g=u /etc/passwd /etc/group /home ${WORK_DIR}
 
 WORKDIR ${WORK_DIR}
-ENTRYPOINT [ "/entrypoint.sh" ]
-CMD [ "tail", "-f", "/dev/null" ]</code></pre>
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["tail", "-f", "/dev/null"]</code></pre>
 </div>
 </div>
 <div class="listingblock">
 <div class="title">entrypoint.sh</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash hljs" data-lang="bash">#!/usr/bin/env bash
+
+set -e
 
 if [ ! -d "${HOME}" ]
 then
