@@ -4,8 +4,6 @@
 
 This is particularly useful in development environments like Dev Spaces, which is designed for cloud-native, OpenShift-based development.
 
-IMPORTANT: Kubedock is meant as a temporary stop-gap fix to run "containers inside containers". OpenShift 4.17+ will allow this functionality to work natively without the need for Kubedock.
-
 == How Kubedock Works
 
 Kubedock intercepts Linux container API calls made by developers or development tools and translates these into OpenShift-native constructs (such as Pods, Deployments, etc.).
@@ -17,7 +15,7 @@ image::kubedock-diagram.svg[title=Kubedock]
 
 == Key Features of Kubedock:
 
-* *Podman Workflow:* Developers can use familiar Podman commands (podman run, podman build, etc.) while developing in an OpenShift environment, maintaining their existing workflows. Instead of learning OpenShift-specific tools and syntax, they can continue using Podman commands that are familiar to them.
+* *Podman Workflow:* Developers can use container tooling such as Podman or applications relying on Docker-compatible APIs. Commands like **podman run** work because Podman communicates with Kubedock through the configured **DOCKER_HOST**.
 
 * *OpenShift Integration:* Kubedock ensures that containers run inside the OpenShift cluster, integrating seamlessly with other OpenShift services like networking, storage, and scaling, providing cloud-native capabilities. Developers get the benefits of OpenShift (scalability, orchestration, etc.) while retaining the simplicity of Podman commands. This provides a hybrid development experience that leverages the strengths of both Podman and OpenShift.
 
@@ -29,7 +27,7 @@ image::kubedock-diagram.svg[title=Kubedock]
 
 * *Support for Complex Development Environments:* Kubedock enables the use of complex containerized environments directly in OpenShift, supporting multi-container applications, microservices, or multi-tiered setups that are easier to orchestrate in an OpenShift cluster than with standalone Podman.
 
-* *Reduced Local Setup Complexity:* Developers using Eclipse Che in combination with Kubedock don’t need to install Podman or manage local container runtimes. Everything is managed by OpenShift, reducing the overhead of local environment setup and configuration.
+* *Reduced Local Setup Complexity:* Developers using Dev Spaces in combination with Kubedock don’t need to install Podman or manage local container runtimes. Everything is managed by OpenShift, reducing the overhead of local environment setup and configuration.
 
 IMPORTANT: The container image you want to use with Kubedock must be compliant with the https://docs.openshift.com/container-platform/4.16/openshift_images/create-images.html#images-create-guide-openshift_create-images[Openshift Container Platform guidelines^]. Otherwise, running the image with Kubedock will result in a failure even if the same image runs locally without issues.
 
@@ -37,7 +35,7 @@ NOTE: The `podman build -t <image> && podman run <image>` command will fail. Ins
 
 == References
 
-* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#running-containers-with-kubedock[Kubedock^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/user_guide?utm_source=chatgpt.com#con_running-containers-with-kubedock_user_guide[Kubedock^]
 
 == Lab: Enabling Kubedock and Working with Containers in Workspaces
 
@@ -65,7 +63,7 @@ components:
           targetPort: 2475*
 ----
 +
-You need to add two environment variables to the devfile (`KUBEDOCK_ENABLED` and `DOCKER_HOST`). The first enabled Kubedock in the workspace, and the second indicates that the local daemon should be used for container builds. You also need to add an `endpoint` section and declare the port at which the Kubedock daemon should listen.
+You need to add two environment variables to the devfile (`KUBEDOCK_ENABLED` and `DOCKER_HOST`). The first enables Kubedock in the workspace, and the second specifies the endpoint of the Kubedock daemon, allowing Podman and Docker-compatible tools to redirect container requests to Kubedock running inside the workspace. You also need to add an `endpoint` section and declare the port at which the Kubedock daemon should listen.
 
 . Fork this repository into your own GitHub account.
 

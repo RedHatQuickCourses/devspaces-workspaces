@@ -8,7 +8,7 @@ While the Red Hat-provided Universal Developer Image (UDI) provides a convenient
 * UDI does not contain support for your application runtime/programming language
 * You deploy very minimal, secure containers in production - and, you wish to retain the same for your developer environment.
 
-Since the UDI is used mainly for development environments, you can simply create a new container image using the UDI as a base (that is, using the `FROM` directive in the Dockerfile), and then add support for your application. UDI provides a container image with a certain specific configuration that is compliant with Dev Spaces.
+Whenever possible, Red Hat recommends extending the Universal Developer Image (UDI) rather than building a completely custom image. UDI already includes the dependencies required by supported IDEs and development tooling.
 
 If you do not want to use UDI as a base, you must build your own container image in a certain way. Consult the _References_ section for examples. It is highly recommended to use the Red Hat-provided Universal Base Image (UBI) based container images as a starting point for your custom image (Remember that your container image *MUST* be OpenShift compliant).
 
@@ -21,36 +21,46 @@ NOTE: This Dockerfile uses `ubi-minimal` as the base. Replace `microdnf` with `d
 .Dockerfile
 [source,Dockerfile,subs=+quotes]
 ----
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.10-1086
+FROM registry.redhat.io/ubi9/ubi-minimal
 
 ARG USER_HOME_DIR="/home/user"
 ARG WORK_DIR="/projects"
 
+# Configure the default shell used in terminals
+ENV SHELL=/usr/bin/bash
+
+# Required for OpenShift arbitrary UID support
 ENV HOME=${USER_HOME_DIR}
+
+# Required when using Buildah inside containers
 ENV BUILDAH_ISOLATION=chroot
 
 COPY --chown=0:0 entrypoint.sh /
 
-# Note: compat-openssl11 & libbrotli are needed for che-code (Che build of VS Code)
-
-RUN microdnf --disableplugin=subscription-manager install -y openssl compat-openssl11 libbrotli; \
-    microdnf update -y ; \
-    microdnf clean all ; \
-    mkdir -p ${USER_HOME_DIR} ; \
-    mkdir -p ${WORK_DIR} ; \
-    chgrp -R 0 /home ; \
-    chmod +x /entrypoint.sh ; \
-    chmod -R g=u /etc/passwd /etc/group /home ${WORK_DIR}
+RUN microdnf --disableplugin=subscription-manager install -y \
+        bash \
+        openssl \
+        libbrotli \
+        shadow-utils \
+    && microdnf clean all \
+    && mkdir -p ${USER_HOME_DIR} ${WORK_DIR} \
+    && chgrp -R 0 /home ${WORK_DIR} \
+    && chmod +x /entrypoint.sh \
+    && chmod -R g=u /etc/passwd /etc/group /home ${WORK_DIR}
 
 WORKDIR ${WORK_DIR}
-ENTRYPOINT [ "/entrypoint.sh" ]
-CMD [ "tail", "-f", "/dev/null" ]
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+CMD ["tail", "-f", "/dev/null"]
 ----
 
 .entrypoint.sh
 [source,bash,subs=+quotes]
 ----
 #!/usr/bin/env bash
+
+set -e
 
 if [ ! -d "${HOME}" ]
 then

@@ -57,8 +57,8 @@ TIP: In all the above cases replace the `che-incubator/che-idea/latest` value wi
 
 == References
 
-* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#ides-in-workspaces-_supported_ides[IDE Support in Dev Spaces^]
-* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#url-parameter-for-the-ide[URL parameter for the IDE^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/user_guide#con_ides-in-workspaces_user_guide[IDE Support in Dev Spaces^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/index#ref_url-parameter-for-the-ide_user_guide[URL parameter for the IDE^]
 
 == Lab: Setting and Overriding Default IDE
 
@@ -70,4 +70,4 @@ TIP: In all the above cases replace the `che-incubator/che-idea/latest` value wi
 
 == References
 
-* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#ides-in-workspaces-_supported_ides[IDE Support in Dev Spaces^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/index#supported_ides[IDE Support in Dev Spaces^]

@@ -2,7 +2,7 @@
 
 A `Devfile Registry` is a central repository or catalog that stores a collection of predefined `Devfiles`. These devfiles can be used by developers to quickly create and configure consistent development environments for various applications, frameworks, and programming languages.
 
-The registry is often hosted as a service, which can be publicly accessible or private (self-hosted). The registry server provides access to the available devfiles and facilitates their discovery and retrieval.
+A Devfile Registry can be hosted internally within OpenShift Dev Spaces or externally as a standalone service. Registries provide mechanisms to discover, retrieve, and consume reusable Devfiles.
 
 An example of a publicly accessible and widely used devfile registry is https://registry.devfile.io[window=_blank]. It offers a variety of predefined devfiles for languages like Python, Java, Node.js, Quarkus, and more.
 

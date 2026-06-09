@@ -1,6 +1,6 @@
 = Devfiles
 
-A Devfile is a YAML-based configuration file used to describe and manage development environments. Originally introduced as part of the Eclipse Che and OpenShift development ecosystems, it has since gained broader adoption. 
+A Devfile is a YAML-based configuration file that follows the Devfile 2.x specification to describe and manage containerized development environments. Originally introduced as part of the Eclipse Che ecosystem, Devfiles have evolved into an open specification for defining cloud-native development environments and are widely used by platforms such as Red Hat OpenShift Dev Spaces.
 
 Devfiles help streamline development by providing a consistent, automated, and cloud-native approach to setting up and managing development environments. This makes it particularly beneficial for teams working on modern, distributed, and containerized applications.
 
@@ -22,10 +22,10 @@ Support for Multiple Languages:: Devfiles are flexible and can be used with vari
 
 Extensible and Customizable:: Devfiles can be extended and customized to suit specific development workflows by adding new components or adjusting commands, making them a powerful tool for developers with diverse needs.
 
-TIP: It is a good practice to always include a Devfile to create a Workspace and customize the environment to your application needs. You do not mandatorily need a Devfile to start a workspace. If you do not include a Devfile in your project repository, Red Hat OpenShift Dev Spaces automatically loads a default Devfile with the Universal Developer Image (UDI) as the base container image.
+TIP: It is a good practice to include a Devfile in your source repository to define and customize the development environment for your application. Although a Devfile is not mandatory to start a workspace, if one is not present, OpenShift Dev Spaces attempts to generate an appropriate Devfile based on the detected project type, typically using Universal Developer Image (UDI)-based stacks.
 
 == References
 
 * https://devfile.io[Devfile website^]
-* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.16/html-single/user_guide/index#devfile-introduction[Introduction to devfile in Dev Spaces^]
+* https://docs.redhat.com/en/documentation/red_hat_openshift_dev_spaces/3.27/html-single/user_guide/index#devfile-introduction_user_guide[Introduction to devfile in Dev Spaces^]
 

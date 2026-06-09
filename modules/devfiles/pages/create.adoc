@@ -1,13 +1,13 @@
-# Creating a Devfile
+= Understanding Devfile Structure
 
-A devfile is a simple plain text YAML file with a specific structure.
+A Devfile is a YAML-based configuration file that follows the Devfile 2.x specification to describe a complete development environment. It defines the tools, runtimes, commands, projects, and automation required to develop an application consistently across different environments.
 
 == Key Components of a Devfile:
 
-Projects:: Lists the repositories that need to be cloned or initialized for the development environment.
-Components:: Defines various containers or plugins (like databases, and runtimes) needed in the development workspace.
-Commands:: Specifies tasks or actions such as "build," "run," and "test" that can be executed within the environment.
-Events:: Allows automation of tasks at certain stages, such as before starting or after stopping a container.
+Projects:: Defines the source code repositories that should be cloned into the workspace when it starts.
+Components:: Defines the containers, Kubernetes resources, plugins, or volumes required by the development environment, such as application runtimes, databases, and supporting services.
+Commands:: Defines reusable actions such as build, run, debug, and test operations that can be executed within the workspace.
+Events:: Associates commands with workspace lifecycle events to automate tasks during workspace startup, initialization, or shutdown.
 
 An example Devfile, defining a development environment for a simple Node.js application that communicates with a PostgreSQL database is provided below:
 
@@ -15,7 +15,9 @@ An example Devfile, defining a development environment for a simple Node.js appl
 ----
 schemaVersion: 2.2.0
 
-metadata: <1>
+schemaVersion: 2.2.0
+
+metadata:                           # <1>
   name: nodejs-sample-app
   version: 1.0.0
   description: Devfile for a sample Node.js application
@@ -23,110 +25,133 @@ metadata: <1>
   tags:
     - Node.js
     - Express
-    - ubi8
 
-projects: <2>
+projects:                           # <2>
   - name: nodejs-app
     source:
       type: git
-      location: "https://github.com/some-repository/nodejs-app.git"
+      location: https://github.com/some-repository/nodejs-app.git
       branch: main
 
 components:
-  - name: nodejs
+
+  - name: nodejs                    # <3>
     container:
-      image: quay.io/devfile/universal-developer-image:ubi8-latest <3>
-      memoryLimit: 512Mi
+      image: registry.redhat.io/devspaces/udi-rhel9:3.27
+      memoryLimit: 1Gi
+      memoryRequest: 512Mi
+      cpuLimit: "1"
+      cpuRequest: 250m
       mountSources: true
-      command: ["npm"]
-      args: ["start"]
-      volumeMounts: <4>
-        - name: node-modules
-          path: "/projects/node_modules"
-      endpoints: <5>
-        - name: "app"
+
+      endpoints:                    # <5>
+        - name: app
           targetPort: 3000
           exposure: public
           protocol: http
+          attributes:
+            discoverable: true
+            urlRewriteSupported: true
 
-  - name: postgres-db 
+      volumeMounts:                 # <4>
+        - name: node-modules
+          path: /projects/node_modules
+
+  - name: postgres-db               # <6>
     container:
-      image: "postgres:13" <6>
-      memoryLimit: 512Mi
+      image: quay.io/sclorg/postgresql-15-c9s
+      memoryLimit: 1Gi
+      memoryRequest: 512Mi
+
       endpoints:
         - name: postgres
           exposure: internal
           targetPort: 5432
           attributes:
-            discoverable: 'true'
+            discoverable: true
+
       env:
-        - name: POSTGRES_USER
+        - name: POSTGRESQL_USER
           value: user
-        - name: POSTGRES_PASSWORD
+
+        - name: POSTGRESQL_PASSWORD
           value: password
-        - name: POSTGRES_DB
+
+        - name: POSTGRESQL_DATABASE
           value: devdb
+
       volumeMounts:
         - name: db-data
-          path: "/var/lib/postgresql/data"
+          path: /var/lib/pgsql/data
 
-commands: <7>
+  - name: node-modules              # <9>
+    volume:
+      size: 1Gi
+
+  - name: db-data                   # <9>
+    volume:
+      size: 1Gi
+
+commands:                           # <7>
+
   - id: install
     exec:
       component: nodejs
-      commandLine: "npm install"
+      commandLine: npm install
       workingDir: /projects/nodejs-app
-      group:
-        kind: build
-        isDefault: true
+
+    group:
+      kind: build
+      isDefault: true
 
   - id: run
     exec:
       component: nodejs
-      commandLine: "npm run dev"
+      commandLine: npm run dev
       workingDir: /projects/nodejs-app
-      group:
-        kind: run
-        isDefault: true
+
+    group:
+      kind: run
+      isDefault: true
 
   - id: test
     exec:
       component: nodejs
-      commandLine: "npm test"
+      commandLine: npm test
       workingDir: /projects/nodejs-app
-      group:
-        kind: test
-        isDefault: true
 
-events: <8>
+    group:
+      kind: test
+      isDefault: true
+
+  - id: cleanup
+    exec:
+      component: nodejs
+      commandLine: npm run clean
+      workingDir: /projects/nodejs-app
+
+events:                             # <8>
+
   preStart:
     - install
-  postStop:
-    - id: cleanup
-      exec:
-        component: nodejs
-        commandLine: "npm run clean"
 
-volumes: <9>
-  - name: node-modules
-    size: 1Gi
-  - name: db-data
-    size: 1Gi
+  postStop:
+    - cleanup
 ----
 
 <1> Devfile metadata. Name, description, tags, and an icon declaration.
 <2> Project details and location of Git repository
-<3> Container image to be loaded in the Workspace. In this case, we load the UDI since it contains a Node.js runtime.
+<3> Container image used for the development environment. In production environments, it is recommended to use the Red Hat Universal Developer Image (UDI) provided with OpenShift Dev Spaces.
 <4> Mount data volumes inside the container. These reference volume names are declared in the `volumes` section.
 <5> Network endpoints to be exposed in the workspace.
 <6> Declaration of the PostgreSQL database container, along with volume mounts, resource limits, and some environment variables used by the container.
-<7> Commands that can be run in this workspace. In this case, to install NPM packages, run Node.js and run tests. These are made available in the IDE as `Tasks` in the `Task` menu.
-<8> Event hooks. These commands are run at startup and shutdown of the workspace.
-<9> Volume name and size declarations. These are mounted in the `volumeMounts` section of the devfile.
+<7> These commands can be executed manually or through IDE integrations such as Tasks in Visual Studio Code - Open Source.
+<8> Workspace lifecycle events that automatically invoke predefined commands during initialization, startup, or shutdown.
+<9> Persistent volume declarations used by containers to store application dependencies and database data across workspace restarts.
 
-NOTE: Red Hat OpenShift Dev Spaces is expected to work with most of the popular images defined in the components section of a Devfile. For production purposes, it is recommended to use one of the Universal Base Images (UBI) from Red Hat as a base image for defining the developer environment.
+NOTE: Red Hat OpenShift Dev Spaces supports many container images for defining development environments. However, for enterprise environments, Red Hat recommends using the Universal Developer Image (UDI) or custom images built from Red Hat Universal Base Images (UBI) to ensure compatibility, supportability, and security updates.
 
-IMPORTANT: Some images cannot be used as is for defining a developer environment since `Visual Studio Code - Open Source` cannot be started with missing `openssl` and `libbrotli` packages. Missing libraries should be explicitly installed inn the `Dockerfile` for the container, that is using `RUN yum install compat-openssl11 libbrotli`.
+IMPORTANT: Custom development images must satisfy the requirements of the selected IDE. If required dependencies are missing, the IDE may fail to start. When building custom images, consider extending the Universal Developer Image (UDI) provided with OpenShift Dev Spaces.
 
 == References
 
